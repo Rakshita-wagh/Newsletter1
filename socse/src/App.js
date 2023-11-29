@@ -6,12 +6,12 @@ function App() {
   return (
     <header>
     <div class="navbar">
-    <img src={myImage} alt="Description" />
+    <img src={myImage} alt="Description" class="logo"/>
     <nav>
         <ul>
             <li><a>Home</a></li>
-            <li>About Us</li>
-            <li>Contact Us</li>
+            <li><a>About Us</a></li>
+            <li><a>Contact Us</a></li>
         </ul>
     </nav>
 </div>

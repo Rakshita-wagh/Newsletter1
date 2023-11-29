@@ -4,3 +4,32 @@ header{
   padding: 0;
   border-bottom: 1px solid #e72929;
 }
+a{
+  color: #af1313;
+}
+a:hover{
+  background: #e72929;
+  color: white;
+  cursor: pointer;
+
+}
+.navbar{
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+.logo{
+  height: 70px;
+  width: 70px;
+  /* padding: 1rem; */
+}
+ul{
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  font-size: 20px;
+}
+ul a{
+  padding: 1rem;
+  display: inline-block;
+}
