@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import myImage from './logo.png';
+import events from './images/events.jpg';
+import sports from './images/sports.jpg';
+
 import './App.css';
 
 function App() {
@@ -15,6 +18,8 @@ function App() {
         </ul>
     </nav>
 </div>
+<img src={events} alt="event" />
+  
 </header>
 
   );
