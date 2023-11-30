@@ -2,7 +2,7 @@ header{
   position: relative;
   background: white;
   padding: 0;
-  border-bottom: 1px solid #e72929;
+  border-bottom:  1px solid #e72929;
 }
 a{
   color: #af1313;
@@ -11,17 +11,21 @@ a:hover{
   background: #e72929;
   color: white;
   cursor: pointer;
-
 }
 .navbar{
   display: flex;
   margin: 0 auto;
   justify-content: space-between;
 }
+ul li{
+  margin: 0;
+  padding: 0;
+}
 .logo{
+  margin-left: 10px;
   height: 70px;
   width: 70px;
-  /* padding: 1rem; */
+  margin-top: 5px;
 }
 ul{
   display: flex;
@@ -30,6 +34,10 @@ ul{
   font-size: 20px;
 }
 ul a{
-  padding: 1rem;
+  padding: 2rem;
   display: inline-block;
+}
+.heading{
+  color: #af1313;
+  font-size: 30px;
 }

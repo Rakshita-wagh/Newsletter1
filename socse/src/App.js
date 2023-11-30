@@ -10,6 +10,7 @@ function App() {
     <header>
     <div class="navbar">
     <img src={myImage} alt="Description" class="logo"/>
+    <h2 class="heading">Socse Association</h2>
     <nav>
         <ul>
             <li><a>Home</a></li>
@@ -18,9 +19,11 @@ function App() {
         </ul>
     </nav>
 </div>
-<img src={events} alt="event" />
   
 </header>
+
+
+
 
   );
 }
