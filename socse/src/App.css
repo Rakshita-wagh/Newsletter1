@@ -2,13 +2,13 @@ header{
   position: relative;
   background: white;
   padding: 0;
-  border-bottom:  1px solid #e72929;
+  border-bottom:  2px solid #af1313;
 }
 a{
   color: #af1313;
 }
 a:hover{
-  background: #e72929;
+  background: #af1313;
   color: white;
   cursor: pointer;
 }
@@ -40,4 +40,94 @@ ul a{
 .heading{
   color: #af1313;
   font-size: 30px;
+}
+
+.images{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.events{
+  height: 350px;
+  width: 350px;
+  margin: 30px;
+  border: 2px solid #af1313;
+  border-radius: 20px;
+  padding: 30px;
+  padding-bottom: 70px;
+  margin-top: 70px;
+}
+
+
+
+.literature{
+  height: 350px;
+  width: 350px;
+  margin: 30px;
+  border: 2px solid #af1313;
+  border-radius: 20px;
+  padding: 30px;
+  padding-bottom: 70px;
+  margin-top: 70px;
+}
+
+.co-curricular{
+  height: 350px;
+  width: 350px;
+  margin: 30px;
+  border: 2px solid #af1313;
+  border-radius: 20px;
+  padding: 30px;
+  padding-bottom: 70px;
+  margin-top: 70px;
+}
+
+.sports{
+  height: 350px;
+  width: 350px;
+  margin: 30px;
+  border: 2px solid #af1313;
+  border-radius: 20px;
+  padding: 30px;
+  padding-bottom: 70px;
+}
+
+.technical{
+  height: 350px;
+  width: 350px;
+  margin: 30px;
+  border: 2px solid #af1313;
+  border-radius: 20px;
+  padding: 30px;
+  padding-bottom: 70px;
+}
+
+.achievements{
+  height: 350px;
+  width: 350px;
+  margin: 30px;
+  border: 2px solid #af1313;
+  border-radius: 20px;
+  padding: 30px;
+  padding-bottom: 70px;
+}
+
+.download{
+  height: 40px;
+  width: 40px;
+  margin-left: 570px;
+  border: 2px solid #af1313;
+  border-radius: 30px;
+  background-color: #af1313;
+  padding-right: 200px;
+}
+
+.download-text{
+  margin-left: 650px;
+  font-size: 20px;
+  border: none;
+  background-color: #af1313;
+  color: aliceblue;
+  transform: translateY(-155%);
+  cursor: pointer;
 }
