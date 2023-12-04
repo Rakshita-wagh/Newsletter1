@@ -18,11 +18,13 @@ function App() {
     <img src={myImage} alt="Description" class="logo"/>
     <h2 class="heading">Socse Association</h2>
     <nav>
+     
         <ul>
             <li><a>Home</a></li>
             <li><a>About Us</a></li>
             <li><a>Contact Us</a></li>
         </ul>
+       
     </nav>
 </div> 
 </header>
