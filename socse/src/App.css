@@ -1,38 +1,121 @@
-.App {
-  text-align: center;
+header{
+  position: relative;
+  background: white;
+  padding: 0;
+  border-bottom:  2px solid #af1313;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a{
+  color: #af1313;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+a:hover{
+  background: #af1313;
   color: white;
+  cursor: pointer;
+}
+.navbar{
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+ul li{
+  margin: 0;
+  padding: 0;
+}
+.logo{
+  margin-left: 10px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+}
+ul{
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  font-size: 20px;
+}
+ul a{
+  padding: 2rem;
+  display: inline-block;
+}
+.heading{
+  color: #af1313;
+  font-size: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.images{
+  display: flex;
+  flex-wrap: wrap;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.events{
+  height: 350px;
+  width: 350px;
+  margin: 30px;
+  padding: 30px;
+  padding-bottom: 70px;
+  margin-top: 70px;
+}
+
+
+
+.literature{
+  height: 350px;
+  width: 350px;
+  margin: 30px;
+  padding: 30px;
+  padding-bottom: 70px;
+  margin-top: 70px;
+}
+
+.co-curricular{
+  height: 350px;
+  width: 350px;
+  margin: 30px;
+  padding: 30px;
+  padding-bottom: 70px;
+  margin-top: 70px;
+}
+
+.sports{
+  height: 350px;
+  width: 350px;
+  margin: 30px;
+  padding: 30px;
+  padding-bottom: 70px;
+}
+
+.technical{
+  height: 350px;
+  width: 350px;
+  margin: 30px;
+  padding: 30px;
+  padding-bottom: 70px;
+}
+
+.achievements{
+  height: 350px;
+  width: 350px;
+  margin: 30px;
+  padding: 30px;
+  padding-bottom: 70px;
+}
+
+.download{
+  height: 40px;
+  width: 40px;
+  margin-left: 570px;
+  border: 2px solid #af1313;
+  border-radius: 30px;
+  background-color: #af1313;
+  padding-right: 200px;
+}
+
+.download-text{
+  margin-left: 650px;
+  font-size: 20px;
+  border: none;
+  background-color: #af1313;
+  color: aliceblue;
+  transform: translateY(-155%);
+  cursor: pointer;
 }
