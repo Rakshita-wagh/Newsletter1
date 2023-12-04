@@ -8,10 +8,15 @@ import cocurricular from './images/co-curricular.png';
 import  achievements from './images/acheivements.jpg';
 import  download from './images/download.png';
 
+
+
+
 import './App.css';
 
 function App() {
+
   return (
+    
     <>
    
     <header>
@@ -30,16 +35,25 @@ function App() {
 </div> 
 </header>
 
+
+
 <body>
   <div class="images">
 <img src={events} alt="Description" class="events"/>
+
+
 <img src={literature} alt="Description" class="literature"/>
+
+
+
+
 <img src={cocurricular} alt="Description" class="co-curricular"/>
 <img src={sports} alt="Description" class="sports"/>
 <img src={technical} alt="Description" class="technical"/>
 <img src={achievements} alt="Description" class="achievements"/>
 </div>
 </body>
+
 
 <footer>
 <img src={download} alt="Description" class="download"/>
