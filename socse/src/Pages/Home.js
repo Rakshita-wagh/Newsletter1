@@ -18,9 +18,6 @@ import './Home.css';
 
 function Home() {
   return (
-    
-    
-    // <BrowserRouter>
       <>
         <header>
           <div className="navbar">
@@ -39,9 +36,7 @@ function Home() {
         <body>
           <div className="images">
             <img src={events} alt="Description" className="events" />
-            {/* <Link to="/Literature" target="_blank">
               <img src={literature} alt="Description" className="literature" />
-            </Link> */}
             <img src={cocurricular} alt="Description" className="co-curricular" />
             <img src={sports} alt="Description" className="sports" />
             <img src={technical} alt="Description" className="technical" />
@@ -54,12 +49,7 @@ function Home() {
           <img src={download} alt="Description" className="download" />
           <button className='download-text'><b>Download</b></button>
         </footer>
-{/* <Routes>
-  <Route path='/literature' element={<Literature/>}></Route>
-</Routes> */}
-        
       </>
-    // </BrowserRouter>
   );
 }
 
