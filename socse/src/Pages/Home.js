@@ -37,6 +37,7 @@ function Home() {
         </header>
 
         <body>
+<<<<<<< HEAD
             <div className='all'>
                <div className="box1">
                  <img src={events} alt="Description" className="events" />
@@ -63,6 +64,18 @@ function Home() {
                  <h5 className="cardtitle">Achievements</h5>
                 </div>
             </div>
+=======
+          <div className="images">
+            <img src={events} alt="Description" className="events" />
+            {/* <Link to="/Literature" target="_blank"> */}
+              <img src={literature} alt="Description" className="literature" />
+            {/* </Link> */}
+            <img src={cocurricular} alt="Description" className="co-curricular" />
+            <img src={sports} alt="Description" className="sports" />
+            <img src={technical} alt="Description" className="technical" />
+            <img src={achievements} alt="Description" className="achievements" />
+          </div>
+>>>>>>> b1601d5 (add)
        
         </body>
 
