@@ -39,9 +39,9 @@ function Home() {
         <body>
           <div className="images">
             <img src={events} alt="Description" className="events" />
-            {/* <Link to="/Literature" target="_blank">
+            {/* <Link to="/Literature" target="_blank"> */}
               <img src={literature} alt="Description" className="literature" />
-            </Link> */}
+            {/* </Link> */}
             <img src={cocurricular} alt="Description" className="co-curricular" />
             <img src={sports} alt="Description" className="sports" />
             <img src={technical} alt="Description" className="technical" />
