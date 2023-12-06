@@ -34,32 +34,16 @@ function Home() {
         </header>
 
         <body>
-            <div className='all'>
-               <div className="box1">
-                 <img src={events} alt="Description" className="events" />
-                 <h5 className="cardtitle">Events</h5>
-                </div>
-                <div className="box1">
-                 <img src={literature} alt="Description" className="events" />
-                 <h5 className="cardtitle">Literature</h5>
-                </div>
-                <div className="box1">
-                 <img src={cocurricular} alt="Description" className="events" />
-                 <h5 className="cardtitle">Cocurricular</h5>
-                </div>
-                <div className="box1">
-                 <img src={sports} alt="Description" className="events" />
-                 <h5 className="cardtitle">Sports</h5>
-                </div>
-                <div className="box1">
-                 <img src={technical} alt="Description" className="events" />
-                 <h5 className="cardtitle">Technical</h5>
-                </div>
-                <div className="box1">
-                 <img src={achievements} alt="Description" className="events" />
-                 <h5 className="cardtitle">Achievements</h5>
-                </div>
-            </div>
+          <div className="images">
+            <img src={events} alt="Description" className="events" />
+            {/* <Link to="/Literature" target="_blank">
+              <img src={literature} alt="Description" className="literature" />
+            </Link> */}
+            <img src={cocurricular} alt="Description" className="co-curricular" />
+            <img src={sports} alt="Description" className="sports" />
+            <img src={technical} alt="Description" className="technical" />
+            <img src={achievements} alt="Description" className="achievements" />
+          </div>
        
         </body>
 
