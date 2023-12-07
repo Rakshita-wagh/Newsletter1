@@ -1,50 +1,4 @@
-header{
-    position: relative;
-    background: white;
-    padding: 0;
-    border-bottom:  2px solid #af1313;
-  }
-  a{
-    color: #af1313;
-  }
-  a:hover{
-    background: #af1313;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .navbar{
-    display: flex;
-    margin: 0 auto;
-    justify-content: space-between;
-  }
-  ul li{
-    margin: 0;
-    padding: 0;
-  }
-  .logo{
-    margin-left: 10px;
-    height: 70px;
-    width: 70px;
-    margin-top: 5px;
-  }
-  ul{
-    display: flex;
-    list-style-type: none;
-    margin: 0;
-    font-size: 20px;
-  }
-  ul a{
-    padding: 2rem;
-    display: inline-block;
-  }
-  .heading{
-    color: #af1313;
-    font-size: 30px;
-    margin-left: 30px;
-  }
-  
-  .images{
+   .images{
     display: flex;
     flex-wrap: wrap;
   }
@@ -115,8 +69,10 @@ header{
     box-shadow: 0 0 10px grey;
     flex-wrap: wrap;
     
+    
 } 
 .all{
   display: flex;
     flex-wrap: wrap;
+    
 }
