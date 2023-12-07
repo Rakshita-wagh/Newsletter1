@@ -20,7 +20,7 @@ function Home() {
   return (
     
     
-    // <BrowserRouter>
+    
       <>
         <header>
           <div className="navbar">
@@ -28,7 +28,7 @@ function Home() {
             <h2 className="heading">Socse Association</h2>
             <nav> 
               <ul>
-              <Link to="/"><li>Home</li></Link>
+              <Link to="/home"><li>Home</li></Link>
                 <Link to="/about"><li>About Us</li></Link>
                 <Link to="/contact"><li>Contact Us</li></Link>
               </ul>
@@ -71,12 +71,10 @@ function Home() {
           <button className='download-text'><b>Download</b></button>
           <div className='first'></div>
         </footer>
-{/* <Routes>
-  <Route path='/literature' element={<Literature/>}></Route>
-</Routes> */}
+
         
       </>
-    // </BrowserRouter>
+    
   );
 
 }
