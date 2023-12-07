@@ -1,5 +1,5 @@
 
-import myImage from '../logo.png';
+
 import events from '../images/events.jpg';
 import sports from '../images/sports.jpg';
 import literature from '../images/literature.jpg';
@@ -18,6 +18,9 @@ import './Home.css';
 
 function Home() {
   return (
+    
+    
+    // <BrowserRouter>
       <>
         <header>
           <div className="navbar">
@@ -25,9 +28,9 @@ function Home() {
             <h2 className="heading">Socse Association</h2>
             <nav> 
               <ul>
-              <li><Link to="/home">Home</Link></li>
-                <li><Link to="/about">About Us</Link></li>
-                <li><Link to="/contact">Contact Us</Link></li>
+              <Link to="/"><li>Home</li></Link>
+                <Link to="/about"><li>About Us</li></Link>
+                <Link to="/contact"><li>Contact Us</li></Link>
               </ul>
             </nav>
           </div>
@@ -68,8 +71,14 @@ function Home() {
           <button className='download-text'><b>Download</b></button>
           <div className='first'></div>
         </footer>
+{/* <Routes>
+  <Route path='/literature' element={<Literature/>}></Route>
+</Routes> */}
+        
       </>
+    // </BrowserRouter>
   );
+
 }
 
 export default Home;

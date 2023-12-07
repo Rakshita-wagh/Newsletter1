@@ -71,7 +71,7 @@ header{
   
   .download-text{
     
-    margin-left: 650px;
+    margin-left: 680px;
     font-size: 20px;
     border: none;
     background-color: #af1313;
@@ -103,11 +103,11 @@ header{
   }
   .box1{
     height: 500px;
-    width: 450px;
+    width: 400px;
     padding-top: 0px;
     text-align: center;
     margin-top: 100px; 
-    margin-left: 45px;
+    margin-left: 65px;
    font-weight:400w;
     font-size: 30px;
     border-radius: 20px;
@@ -115,6 +115,7 @@ header{
     background-color: white;
     color:rgb(8, 8, 8);
     box-shadow: 0 0 10px grey;
+    flex-wrap: wrap;
     
 } 
 .all{
