@@ -26,7 +26,7 @@ function Home() {
           <div className="navbar">
             <img src={myImage} alt="Description" className="logo" />
             <h2 className="heading">Socse Association</h2>
-            <nav>
+            <nav> 
               <ul>
               <Link to="/"><li>Home</li></Link>
                 <Link to="/about"><li>About Us</li></Link>
@@ -39,9 +39,7 @@ function Home() {
         <body>
           <div className="images">
             <img src={events} alt="Description" className="events" />
-            {/* <Link to="/Literature" target="_blank"> */}
               <img src={literature} alt="Description" className="literature" />
-            {/* </Link> */}
             <img src={cocurricular} alt="Description" className="co-curricular" />
             <img src={sports} alt="Description" className="sports" />
             <img src={technical} alt="Description" className="technical" />
@@ -53,6 +51,7 @@ function Home() {
         <footer>
           <img src={download} alt="Description" className="download" />
           <button className='download-text'><b>Download</b></button>
+          <div className='first'></div>
         </footer>
 {/* <Routes>
   <Route path='/literature' element={<Literature/>}></Route>
