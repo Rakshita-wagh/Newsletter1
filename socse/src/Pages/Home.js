@@ -18,6 +18,9 @@ import './Home.css';
 
 function Home() {
   return (
+    
+    
+    // <BrowserRouter>
       <>
         <header>
           <div className="navbar">
@@ -25,25 +28,41 @@ function Home() {
             <h2 className="heading">Socse Association</h2>
             <nav> 
               <ul>
-              <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About Us</Link></li>
-                <li><Link to="/contact">Contact Us</Link></li>
+              <Link to="/"><li>Home</li></Link>
+                <Link to="/about"><li>About Us</li></Link>
+                <Link to="/contact"><li>Contact Us</li></Link>
               </ul>
             </nav>
           </div>
         </header>
 
         <body>
-          <div className="images">
-            <img src={events} alt="Description" className="events" />
-            {/* <Link to="/Literature" target="_blank">
-              <img src={literature} alt="Description" className="literature" />
-            </Link> */}
-            <img src={cocurricular} alt="Description" className="co-curricular" />
-            <img src={sports} alt="Description" className="sports" />
-            <img src={technical} alt="Description" className="technical" />
-            <img src={achievements} alt="Description" className="achievements" />
-          </div>
+            <div className='all'>
+               <div className="box1">
+                 <img src={events} alt="Description" className="events" />
+                 <h5 className="cardtitle">Events</h5>
+                </div>
+                <div className="box1">
+                 <img src={literature} alt="Description" className="events" />
+                 <h5 className="cardtitle">Literature</h5>
+                </div>
+                <div className="box1">
+                 <img src={cocurricular} alt="Description" className="events" />
+                 <h5 className="cardtitle">Cocurricular</h5>
+                </div>
+                <div className="box1">
+                 <img src={sports} alt="Description" className="events" />
+                 <h5 className="cardtitle">Sports</h5>
+                </div>
+                <div className="box1">
+                 <img src={technical} alt="Description" className="events" />
+                 <h5 className="cardtitle">Technical</h5>
+                </div>
+                <div className="box1">
+                 <img src={achievements} alt="Description" className="events" />
+                 <h5 className="cardtitle">Achievements</h5>
+                </div>
+            </div>
        
         </body>
 
@@ -52,7 +71,12 @@ function Home() {
           <button className='download-text'><b>Download</b></button>
           <div className='first'></div>
         </footer>
+{/* <Routes>
+  <Route path='/literature' element={<Literature/>}></Route>
+</Routes> */}
+        
       </>
+    // </BrowserRouter>
   );
 }
 
