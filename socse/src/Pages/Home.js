@@ -28,9 +28,9 @@ function Home() {
             <h2 className="heading">Socse Association</h2>
             <nav>
               <ul>
-              <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About Us</Link></li>
-                <li><Link to="/contact">Contact Us</Link></li>
+              <Link to="/"><li>Home</li></Link>
+                <Link to="/about"><li>About Us</li></Link>
+                <Link to="/contact"><li>Contact Us</li></Link>
               </ul>
             </nav>
           </div>
