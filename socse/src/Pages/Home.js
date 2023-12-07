@@ -7,6 +7,7 @@ import technical from '../images/techical.jpg';
 import cocurricular from '../images/co-curricular.png';
 import achievements from '../images/acheivements.jpg';
 import download from '../images/download.png';
+import  Notification from '../modules/notification'
 
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Literature from '../modules/Literature';
@@ -20,6 +21,7 @@ function Home() {
   return (
     <>
         <body>
+        <Notification/>
             <div className='all'>
                <div className="box1">
                  <img src={events} alt="Description" className="events" />
