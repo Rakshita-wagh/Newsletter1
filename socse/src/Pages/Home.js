@@ -37,27 +37,27 @@ function Home() {
             <div className='all'>
                <div className="box1">
                  <img src={events} alt="Description" className="events" />
-                 <h5 className="cardtitle">Events</h5>
+                 <button className='cardtitle'>Events</button>
                 </div>
                 <div className="box1">
                  <img src={literature} alt="Description" className="events" />
-                 <h5 className="cardtitle">Literature</h5>
+                 <button className='cardtitle'>Literature</button>
                 </div>
                 <div className="box1">
                  <img src={cocurricular} alt="Description" className="events" />
-                 <h5 className="cardtitle">Cocurricular</h5>
+                 <button className='cardtitle'>Cocurricular</button>
                 </div>
                 <div className="box1">
                  <img src={sports} alt="Description" className="events" />
-                 <h5 className="cardtitle">Sports</h5>
+                 <button className='cardtitle'>Sports</button>
                 </div>
                 <div className="box1">
                  <img src={technical} alt="Description" className="events" />
-                 <h5 className="cardtitle">Technical</h5>
+                 <button className='cardtitle'>Technical</button>
                 </div>
                 <div className="box1">
                  <img src={achievements} alt="Description" className="events" />
-                 <h5 className="cardtitle">Achievements</h5>
+                 <button className='cardtitle'>Achievements</button>
                 </div>
             </div>
        
