@@ -19,38 +19,39 @@ import { useNavigate } from 'react-router-dom';
 
 function Home() {
   const navigate = useNavigate();
-
-  const clickOnImage = () => {
-    navigate('/Literature');
-  };
-
-
+  const Eve = () => navigate('/Events');
+  const Lit = () => navigate('/Literature');
+  const Coc = () => navigate('/Cocurricular');
+  const Spo = () => navigate('/Sports');
+  const Tech = () => navigate('/Technical');
+  const Ach = () => navigate('/Achievements');
+  
   return (
     <>
         <body>
         <Notification/>
             <div className='all'>
-               <div className="box1">
+               <div className="box1" onClick={Eve}>
                  <img src={events} alt="Description" className="events" />
                  <h5 className="cardtitle">Events</h5>
                 </div>
-                <div className="box1" onClick={clickOnImage}>
+                <div className="box1" onClick={Lit}>
                  <img src={literature} alt="Description" className="events" />
                  <h5 className="cardtitle">Literature</h5>
                 </div>
-                <div className="box1">
+                <div className="box1" onClick={Coc}>
                  <img src={cocurricular} alt="Description" className="events" />
                  <h5 className="cardtitle">Cocurricular</h5>
                 </div>
-                <div className="box1">
+                <div className="box1" onClick={Spo}>
                  <img src={sports} alt="Description" className="events" />
                  <h5 className="cardtitle">Sports</h5>
                 </div>
-                <div className="box1">
+                <div className="box1" onClick={Tech}>
                  <img src={technical} alt="Description" className="events" />
                  <h5 className="cardtitle">Technical</h5>
                 </div>
-                <div className="box1">
+                <div className="box1" onClick={Ach}>
                  <img src={achievements} alt="Description" className="events" />
                  <h5 className="cardtitle">Achievements</h5>
                 </div>
