@@ -68,7 +68,7 @@
     color:rgb(8, 8, 8);
     box-shadow: 0 0 10px grey;
     flex-wrap: wrap;
-    
+    cursor: pointer;
     
 } 
 .all{
