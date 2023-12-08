@@ -1,11 +1,11 @@
 import React from 'react';
-function Literature() {
+function Sports() {
   
   return (
     <div className="literature-page">
-      <h1>Literature Events</h1>
+      <h1>Sports</h1>
     </div>
   );
 }
 
-export default Literature;
+export default Sports;

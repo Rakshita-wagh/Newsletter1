@@ -1,11 +1,11 @@
 import React from 'react';
-function Literature() {
+function Cocurricular() {
   
   return (
     <div className="literature-page">
-      <h1>Literature Events</h1>
+      <h1> Cocurricular</h1>
     </div>
   );
 }
 
-export default Literature;
+export default Cocurricular;
