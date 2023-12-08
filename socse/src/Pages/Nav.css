@@ -58,7 +58,7 @@ header
 }
 
 a:hover{
-  background:#ce8541 ;
+  /* background:#ce8541 ; */
   color: #af1313;
   cursor: pointer;
 }

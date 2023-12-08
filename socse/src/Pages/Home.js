@@ -13,11 +13,18 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Literature from '../modules/Literature';
 
 import './Home.css';
-
+import { useNavigate } from 'react-router-dom';
 
 
 
 function Home() {
+  const navigate = useNavigate();
+
+  const clickOnImage = () => {
+    navigate('/Literature');
+  };
+
+
   return (
     <>
         <body>
@@ -27,7 +34,7 @@ function Home() {
                  <img src={events} alt="Description" className="events" />
                  <h5 className="cardtitle">Events</h5>
                 </div>
-                <div className="box1">
+                <div className="box1" onClick={clickOnImage}>
                  <img src={literature} alt="Description" className="events" />
                  <h5 className="cardtitle">Literature</h5>
                 </div>
