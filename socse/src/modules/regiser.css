@@ -1,0 +1,17 @@
+.forms{
+    padding-left: 45px;
+   margin-left: 35%;
+   margin-top: 5%;
+   margin-bottom: 25px;
+   background-color: lavendar;
+ border-top: 30px solid  #c42988;
+   height: 300px;
+   width: 500px;
+   padding-top: 60px;
+color: black;
+   box-shadow: 0 0 10px grey;
+}
+
+placeholder{
+    width: 200px;
+}
