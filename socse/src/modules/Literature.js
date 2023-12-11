@@ -16,6 +16,21 @@ function Literature() {
     setSelectedYearArticles(event.target.value);
   };
 
+
+  const handleSubmit = () => {
+    if (selectedYearPoems && selectedYearArticles) {
+      window.alert("Please select either poems or articles, not both.");
+      setSelectedYearPoems('');
+      setSelectedYearArticles('');
+    } else if (selectedYearPoems) {
+      //history.push(`/poems/${selectedYearPoems}`);
+    } else if (selectedYearArticles) {
+      //history.push(`/articles/${selectedYearArticles}`);
+    } else {
+      window.alert("Please select either poems or articles.");
+    }
+  };
+
   
   return (
     <div className="literature-page">
@@ -34,13 +49,14 @@ function Literature() {
         </select>
 
         <h2>Articles</h2>
-        <select>
+        <select value={selectedYearArticles} onChange={handleArticlesChange}>
             <option disabled selected value="">Select Year</option>
             <option value="2023">2023</option>
             <option value="2022">2022</option>
             <option value="2021">2021</option>
         </select>
     </div>
+    <button className="submit-button" onClick={handleSubmit}>Submit</button>
 </div>
 
 </body>
