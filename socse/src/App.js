@@ -14,9 +14,6 @@ import Technical from "./modules/Technical";
 import Achievements from "./modules/Achievements";
 import  Register from './modules/register';
 
-
-
-
 function App(){
   return(
     <div>
