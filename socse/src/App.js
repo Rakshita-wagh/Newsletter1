@@ -13,6 +13,7 @@ import Sports from "./modules/Sports";
 import Technical from "./modules/Technical";
 import Achievements from "./modules/Achievements";
 import  Register from './modules/register';
+import LiteratureDetail from './Details/LiteratureDetail.js';
 
 function App(){
   return(
@@ -31,6 +32,7 @@ function App(){
       <Route path="/Technical" element={<Technical/>}></Route>
       <Route path="/Achievements" element={<Achievements/>}></Route>
       <Route path="/register" element={<Register/>}></Route>
+      <Route path="/literature-detail" element={<LiteratureDetail/>}></Route>
       </Routes>
       </BrowserRouter>
     </div>

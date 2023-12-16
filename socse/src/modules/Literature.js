@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import './Literature.css';
+import { useNavigate } from 'react-router-dom';
+import LiteratureDetail from '../Details/LiteratureDetail.js';
 
 
 function Literature() {
+  const navigate = useNavigate();
+
   const [selectedYearPoems, setSelectedYearPoems] = useState('');
   const [selectedYearArticles, setSelectedYearArticles] = useState('');
 
@@ -24,8 +27,10 @@ function Literature() {
       setSelectedYearArticles('');
     } else if (selectedYearPoems) {
       //history.push(`/poems/${selectedYearPoems}`);
+      navigate('/literature-detail');
     } else if (selectedYearArticles) {
       //history.push(`/articles/${selectedYearArticles}`);
+      navigate('/literature-detail');
     } else {
       window.alert("Please select either poems or articles.");
     }
