@@ -8,75 +8,59 @@
     width: 100%;
    
   }
-  
-  
-  .download{
-    height: 40px;
-    width: 40px;
-    margin-left: 600px;
-    margin-top: 50px;
-    border: 2px solid #af1313;
-    border-radius: 30px;
-    background-color: #af1313;
-    padding-right: 200px;
-  }
-  
-  .download-text{
-    
-    margin-left: 680px;
-    font-size: 20px;
-    border: none;
-    background-color: #af1313;
-    color: aliceblue;
-    transform: translateY(-155%);
-    cursor: pointer;
-  }
+ 
   
   .image-container {
     position: relative;
   }
-  
-  .image-caption {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 5px;
-    font-size: 18px;
-    color: #333; /* Adjust the color as needed */
-  }
+
   .first{
     height: 300px;
     width: 100%;
     background-color: #555;
   }
-  .box1{
+  .box1 {
     height: 500px;
     width: 400px;
     padding-top: 0px;
     text-align: center;
     margin-top: 100px; 
     margin-left: 65px;
-   font-weight:400w;
+    font-weight: 400;
     font-size: 30px;
     border-radius: 20px;
-    border: 10px solid  none;
-    background-color: white;
-    color:rgb(8, 8, 8);
+    border: 10px solid none;
     box-shadow: 0 0 10px grey;
     flex-wrap: wrap;
     cursor: pointer;
-    
-} 
+    transition: transform 0.3s, box-shadow 0.3s; 
+  }
+  
+  .box1:hover {
+    transform: translateZ(100%); 
+    box-shadow: 0px 0px 10px 10px #d63384;; 
+  }
+ 
+
 .all{
   display: flex;
-    flex-wrap: wrap;
-    
+    flex-wrap: wrap; 
 }
+
+
 
 .form{
   margin-left: 27%;
+}
+
+.cardtitle{
+  margin-top: 80px;
+  font-family: "Roboto", Fantasy;
+  font-size: 25px;
+
+}
+
+.button{
+  margin: 80px 46% 80px;
+  
 }
