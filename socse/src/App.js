@@ -14,6 +14,7 @@ import Technical from "./modules/Technical";
 import Achievements from "./modules/Achievements";
 import  Register from './modules/register';
 import LiteratureDetail from './Details/LiteratureDetail.js';
+import SportsDetail from "./Details/SportsDetail.js";
 
 function App(){
   return(
@@ -33,6 +34,8 @@ function App(){
       <Route path="/Achievements" element={<Achievements/>}></Route>
       <Route path="/register" element={<Register/>}></Route>
       <Route path="/literature-detail" element={<LiteratureDetail/>}></Route>
+      <Route path="/sports-detail" element={<SportsDetail/>}></Route>
+
       </Routes>
       </BrowserRouter>
     </div>
