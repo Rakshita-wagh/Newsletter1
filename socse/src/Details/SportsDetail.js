@@ -13,8 +13,7 @@ const SportsDetail = () => {
     backgroundPosition: 'center',
     width: '100%',
     height: '400px',
-    position: 'absolute', 
-    opacity:'0.5',
+    position: 'absolute',
   };
 
 
