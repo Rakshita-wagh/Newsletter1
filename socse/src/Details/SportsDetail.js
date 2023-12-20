@@ -13,17 +13,22 @@ const SportsDetail = () => {
     backgroundPosition: 'center',
     width: '100%',
     height: '400px',
-    position: 'absolute', 
+    position: 'absolute',
   };
 
-  const carouselControlStyle = {
-    color: 'black',
-    opacity: 0.8, 
+
+  const carouselContainerStyle = {
+    position: 'absolute',
+    top: '80%',
+    left: 0,
+    right: 0,
+    transform: 'translateY(-55%)',
   };
+  
 
   return (
     <div style={containerStyle}>
-      <Carousel controls style={{ position: 'absolute', top: '80%', left: 0, right: 0, transform: 'translateY(-60%)' }}>
+      <Carousel style={carouselContainerStyle}>
         <Carousel.Item>
           <img
             className="d-block mx-auto"
