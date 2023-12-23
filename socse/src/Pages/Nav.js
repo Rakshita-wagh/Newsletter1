@@ -1,5 +1,5 @@
 import React from 'react';
-import myImage from '../logo.png';
+import myImage from '../images/logo.jpg';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './Nav.css';
 
@@ -11,7 +11,7 @@ function Nav(){
         <header>
           <div className="navbar">
             <img src={myImage} alt="Description" className="logo" />
-            <h2 className="heading">Socse Association</h2>
+            <h2 className="heading"><b>Association Of Computer Science And Engineering Students</b></h2>
             <nav> 
               <ul>
               <Link to="/"><li>Home</li></Link>

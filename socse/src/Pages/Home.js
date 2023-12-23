@@ -6,18 +6,26 @@ import literature from '../images/literature.jpg';
 import technical from '../images/techical.jpg';
 import cocurricular from '../images/co-curricular.png';
 import achievements from '../images/acheivements.jpg';
-import download from '../images/download.png';
-import  Notification from '../modules/notification'
+import  Notification from '../modules/notification';
+import {Button} from 'react-bootstrap';
+
 
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Literature from '../modules/Literature';
-
+import background from '../images/background.png';
 import './Home.css';
 import { useNavigate } from 'react-router-dom';
 
 
 
-function Home() {
+function Home () {
+  const Image = {
+    backgroundImage: `url("${background}")`, 
+    backgroundSize: 'cover',
+    height: '100vh',  
+    width: '100%',
+  };
+
   const navigate = useNavigate();
   const Eve = () => navigate('/Events');
   const Lit = () => navigate('/Literature');
@@ -26,11 +34,14 @@ function Home() {
   const Tech = () => navigate('/Technical');
   const Ach = () => navigate('/Achievements');
   
+  
+  
+  
   return (
     <>
-        <body>
+    <div style = {Image} >
         <Notification/>
-            <div className='all'>
+            <div className='all' >
                <div className="box1" onClick={Eve}>
                  <img src={events} alt="Description" className="events" />
                  <h5 className="cardtitle">Events</h5>
@@ -57,13 +68,12 @@ function Home() {
                 </div>
             </div>
        
-        </body>
+        
 
-        <footer>
-          <img src={download} alt="Description" className="download" />
-          <button className='download-text'><b>Download</b></button>
-          <div className='first'></div>
-        </footer>
+        <div >
+        <Button className="button" variant="outline-danger"><b>Download</b></Button>
+        </div>
+        </div>
        </>
   );
 

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import SportsDetail from '../Details/SportsDetail';
 import './Literature.css';
 
 
 function Sports() {
+
+  const navigate=useNavigate();
   const [selectedYearIndoor, setSelectedYearIndoor] = useState('');
   const [selectedYearOutdoor, setSelectedYearOutdoor] = useState('');
 
@@ -24,6 +26,7 @@ function Sports() {
       setSelectedYearOutdoor('');
     } else if (selectedYearIndoor) {
       //history.push(`/poems/${selectedYearPoems}`);
+      navigate('/sports-detail');
     } else if (selectedYearOutdoor) {
       //history.push(`/articles/${selectedYearArticles}`);
     } else {
