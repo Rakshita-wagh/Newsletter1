@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import './Literature.css';
 
 
 function Achievements() {
+
+  const navigate = useNavigate();
+
   const [selectedYearSports, setSelectedYearSports] = useState('');
   const [selectedYearTechnical, setSelectedYearTechnical] = useState('');
   const [selectedYearAcademics, setSelectedYearAcademics] = useState('');
@@ -30,9 +34,12 @@ function Achievements() {
       setSelectedYearAcademics('');
     } else if (selectedYearSports) {
       //history.push(`/poems/${selectedYearPoems}`);
+      navigate('/Achievements-detail');
     } else if (selectedYearTechnical) {
       //history.push(`/articles/${selectedYearArticles}`);
+      navigate('/Achievements-detail');
     }else if (selectedYearAcademics){
+      navigate('/Achievements-detail');
 
     }
      else {
