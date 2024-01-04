@@ -1,0 +1,41 @@
+.coordinate{
+  display: flex;
+  margin-top: 25px;
+}
+
+.image{
+  display: flex;
+  width: 100px;
+  height: 80px;
+}
+
+.image1{
+ margin-left: 27.6%;
+ margin-bottom: 5px;
+}
+
+.image2{
+  margin-left: 22%;
+}
+
+.anand,.uday{
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+.lead{
+  margin-left: 22%;
+}
+
+.module{
+  font-size: 20px
+}
+
+.container{
+  background-color: bisque;
+}
+
+
+
+
+
