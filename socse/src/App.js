@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './Pages/Home';
 import About from './Pages/About';
@@ -15,7 +15,6 @@ import Achievements from "./modules/Achievements";
 import  Register from './modules/register';
 import LiteratureDetail from './Details/LiteratureDetail.js';
 import SportsDetail from "./Details/SportsDetail.js";
-import AchievementsDetail from "./Details/Achievements.js";
 
 function App(){
   return(
@@ -36,7 +35,7 @@ function App(){
       <Route path="/register" element={<Register/>}></Route>
       <Route path="/literature-detail" element={<LiteratureDetail/>}></Route>
       <Route path="/sports-detail" element={<SportsDetail/>}></Route>
-      <Route path="/Achievements-detail" element={<AchievementsDetail/>}></Route>
+
       </Routes>
       </BrowserRouter>
     </div>
