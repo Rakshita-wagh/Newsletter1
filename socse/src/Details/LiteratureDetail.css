@@ -5,7 +5,7 @@
 }
 
 .poems-heading {
-  margin-bottom: 20px; /* Add space between heading and grey box */
+  margin-bottom: 20px; /* Add space between heading and grey box  */
 }
 
 .slider-box {
@@ -62,4 +62,79 @@
 .center-image {
   display: block;
   margin: 0 auto;
+} 
+/* LiteratureDetail.css */
+/*
+.literature-detail-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
 }
+
+.poems-heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.slider-box {
+  margin-top: 20px;
+}
+
+.carousel-slide {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.center-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+p {
+  margin: 10px 0;
+  color: #555;
+}
+
+.read-more-button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.read-more-button:hover {
+  background-color: #2980b9;
+}
+
+/* Media Query for Responsive Design 
+@media (max-width: 600px) {
+  .literature-detail-container {
+    padding: 10px;
+  }
+  .carousel-slide {
+    padding: 10px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+
+*/

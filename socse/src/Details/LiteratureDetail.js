@@ -73,7 +73,7 @@ function LiteratureDetail() {
       title: 'Poem 3',
       content: 'Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3',
     },
-    // Add more items as needed
+    
   ];
 
   const [expandedSlides, setExpandedSlides] = useState({});
@@ -89,39 +89,7 @@ function LiteratureDetail() {
   const handleReadMore = (id) => {
     setExpandedSlides((prev) => ({ ...prev, [id]: true }));
   };
-/*
-  return (
-    <div className="literature-detail-container">
-      <h2 className="poems-heading">Poems of the year {year}</h2>
 
-      <div className="slider-box">
-        <Slider {...settings}>
-          {carouselItems.map((item) => (
-            <div key={item.id} className="carousel-slide">
-              <h3>{item.title}</h3>
-              {expandedSlides[item.id] ? (
-                <div>
-                  <p>{item.content}</p>
-                </div>
-              ) : (
-                <div>
-                  <p>{item.content.substring(0, 100)}</p>
-                  <button
-                    className="read-more-button"
-                    onClick={() => handleReadMore(item.id)}
-                  >
-                    Read More
-                  </button>
-                </div>
-              )}
-            </div>
-          ))}
-        </Slider>
-      </div>
-    </div>
-  );
-}
-*/
 return (
     <div className="literature-detail-container">
       <h2 className="poems-heading">Poems of the year {year}</h2>
@@ -156,3 +124,39 @@ return (
 }
 
 export default LiteratureDetail;
+
+
+
+/*
+  return (
+    <div className="literature-detail-container">
+      <h2 className="poems-heading">Poems of the year {year}</h2>
+
+      <div className="slider-box">
+        <Slider {...settings}>
+          {carouselItems.map((item) => (
+            <div key={item.id} className="carousel-slide">
+              <h3>{item.title}</h3>
+              {expandedSlides[item.id] ? (
+                <div>
+                  <p>{item.content}</p>
+                </div>
+              ) : (
+                <div>
+                  <p>{item.content.substring(0, 100)}</p>
+                  <button
+                    className="read-more-button"
+                    onClick={() => handleReadMore(item.id)}
+                  >
+                    Read More
+                  </button>
+                </div>
+              )}
+            </div>
+          ))}
+        </Slider>
+      </div>
+    </div>
+  );
+}
+*/
