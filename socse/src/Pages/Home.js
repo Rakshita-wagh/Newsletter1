@@ -20,7 +20,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Home () {
   const Image = {
-    backgroundImage: `url("${background}")`, 
+    //backgroundImage: `url("${background}")`, 
     backgroundSize: 'cover',
     height: '100vh',  
     width: '100%',
