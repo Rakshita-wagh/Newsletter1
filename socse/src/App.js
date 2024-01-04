@@ -15,7 +15,6 @@ import Achievements from "./modules/Achievements";
 import  Register from './modules/register';
 import LiteratureDetail from './Details/LiteratureDetail.js';
 import SportsDetail from "./Details/SportsDetail.js";
-import Edit from "./Details/Edit.js";
 
 function App(){
   return(
@@ -36,7 +35,6 @@ function App(){
       <Route path="/register" element={<Register/>}></Route>
       <Route path="/literature-detail" element={<LiteratureDetail/>}></Route>
       <Route path="/sports-detail" element={<SportsDetail/>}></Route>
-      <Route path="/edit" element={<Edit/>}></Route>
 
       </Routes>
       </BrowserRouter>

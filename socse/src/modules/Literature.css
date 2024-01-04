@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 100px;
     margin: 50px auto;
     background-color: #fff;
     padding: 20px;
@@ -21,6 +21,7 @@ body {
 
 .content {
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 h2 {
@@ -64,4 +65,5 @@ select:focus {
   
   .submit-button:focus {
     outline: none;
-  }
+  } 
+  
