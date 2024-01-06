@@ -83,9 +83,9 @@ app.post("/", async (req, res) => {
     if (user) {
       
       if (password === user.password) {
-        res.json("success");
+        res.json("exist");
       } else {
-        res.json("invalidPassword");
+        res.json("notexist");
       }
     } else {
       // User not found
