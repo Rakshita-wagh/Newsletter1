@@ -78,11 +78,17 @@ app.post("/", async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const check = await User.findOne({ email: email });
+    const user = await User.findOne({ email: email });
 
-    if (check) {
-      res.json("exist");
+    if (user) {
+      
+      if (password === user.password) {
+        res.json("success");
+      } else {
+        res.json("invalidPassword");
+      }
     } else {
+      // User not found
       res.json("notexist");
     }
   } catch (e) {
