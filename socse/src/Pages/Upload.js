@@ -1,49 +1,69 @@
-import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from "react";
+import { Button, Form } from "react-bootstrap";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export default function Upload() {
+function Login() {
+  const history = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  async function submit(e) {
+    e.preventDefault();
+
+    try {
+      await axios
+        .post("http://localhost:8000", {
+          email,
+          password,
+        })
+        .then((res) => {
+          if (res.data === "exist") {
+            history("/Edit", { state: { id: email } });
+          } else if (res.data === "notexist") {
+            alert("User has not signed up");
+          }
+        })
+        .catch((e) => {
+          alert("Wrong details");
+          console.log(e);
+        });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   return (
-    <div>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
-        <title>Login Page</title>
-    </head>
-    <body>
-    
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Login</h4>
-                    </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="usernameOrEmail">Username or Email</label>
-                                <input type="text" class="form-control" id="usernameOrEmail" name="usernameOrEmail" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" required />
-                            </div>
-                            <button type="submit" class="btn btn-primary">Login</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div className="d-flex align-items-center justify-content-center vh-100">
+      <div className="login-box p-5 shadow-lg rounded" style={{ width: "500px", height: "500px" }}>
+        <h1 className="mb-4 text-center">Login</h1>
+        <Form onSubmit={submit}>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Form.Group>
+
+          <Button variant="primary" type="submit" className="mt-4 w-100">
+            Login
+          </Button>
+        </Form>
+      </div>
     </div>
-    
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.9/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
-    </body>
-    </html>
-  </div>
-  )
+  );
 }
+
+export default Login;
