@@ -147,6 +147,24 @@ app.get("/data", async (req, res) => {
   }
 });
 
+
+app.get("/data/:year", async (req, res) => {
+  try {
+    const year = req.params.year;
+    const storedData = await Data.find({ year: year });
+
+    if (storedData.length === 0) {
+      return res.status(404).json({ status: "fail", message: "No data found for the specified year" });
+    }
+
+    res.json(storedData);
+  } catch (error) {
+    console.error("Error retrieving data:", error);
+    res.status(500).json({ status: "fail", message: "Internal Server Error" });
+  }
+});
+
+
 const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {

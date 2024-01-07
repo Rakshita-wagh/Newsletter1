@@ -38,22 +38,13 @@ function Literature() {
 
   */
   const handleSubmit = async () => {
-    let response;
-    let responseText;
-  
     try {
-      if (selectedYearPoems && selectedYearArticles) {
-        window.alert("Please select either poems or articles, not both.");
-        setSelectedYearPoems('');
-        setSelectedYearArticles('');
-        return;
-      }
+      let response;
   
       if (selectedYearPoems) {
-        response = await fetch(`/api/poems/${selectedYearPoems}`)
-
+        response = await fetch(`http://localhost:8000/data/${selectedYearPoems}`);
       } else if (selectedYearArticles) {
-        response = await fetch(`/api/articles/${selectedYearArticles}`);
+        response = await fetch(`http://localhost:8000/data/${selectedYearArticles}`);
       } else {
         window.alert("Please select either poems or articles.");
         return;
@@ -63,21 +54,22 @@ function Literature() {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
   
-      responseText = await response.text();
-      console.log('Fetched Data:', responseText);
+      
   
-      // Determine the route based on the selected type (poems or articles)
-      const route = selectedYearPoems ? '/poems' : '/articles';
+      console.log('Before navigation'); // Add this line
+
+      const responseData = await response.json();
+
+    const route = selectedYearPoems ? '/poems' : '/articles';
+
+    navigate('/literature-detail', { state: { data: responseData, route } });
+
+    console.log('After navigation'); // Add this line
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
   
-      navigate('/literature-detail', { state: { data: responseText, route } });
-  
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      if (response) {
-        console.log('Full response:', responseText);
-      }
-    }
-  };
   
   
 
