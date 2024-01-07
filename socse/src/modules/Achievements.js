@@ -37,9 +37,9 @@ function Achievements() {
       navigate('/Achievements-detail');
     } else if (selectedYearTechnical) {
       //history.push(`/articles/${selectedYearArticles}`);
-      //navigate('/Achievements-detail');
+      navigate('/Achievements-detail');
     }else if (selectedYearAcademics){
-      //navigate('/Achievements-detail');
+      navigate('/Achievements-detail');
 
     }
      else {

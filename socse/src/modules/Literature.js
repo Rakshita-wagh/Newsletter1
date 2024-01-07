@@ -19,7 +19,7 @@ function Literature() {
     setSelectedYearArticles(event.target.value);
   };
 
-
+/*
   const handleSubmit = () => {
     if (selectedYearPoems && selectedYearArticles) {
       window.alert("Please select either poems or articles, not both.");
@@ -36,7 +36,51 @@ function Literature() {
     }
   };
 
+  */
+  const handleSubmit = async () => {
+    let response;
+    let responseText;
   
+    try {
+      if (selectedYearPoems && selectedYearArticles) {
+        window.alert("Please select either poems or articles, not both.");
+        setSelectedYearPoems('');
+        setSelectedYearArticles('');
+        return;
+      }
+  
+      if (selectedYearPoems) {
+        response = await fetch(`/api/poems/${selectedYearPoems}`)
+
+      } else if (selectedYearArticles) {
+        response = await fetch(`/api/articles/${selectedYearArticles}`);
+      } else {
+        window.alert("Please select either poems or articles.");
+        return;
+      }
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      responseText = await response.text();
+      console.log('Fetched Data:', responseText);
+  
+      // Determine the route based on the selected type (poems or articles)
+      const route = selectedYearPoems ? '/poems' : '/articles';
+  
+      navigate('/literature-detail', { state: { data: responseText, route } });
+  
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      if (response) {
+        console.log('Full response:', responseText);
+      }
+    }
+  };
+  
+  
+
   return (
     <div className="literature-page">
       <body>

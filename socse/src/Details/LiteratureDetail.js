@@ -50,12 +50,15 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './LiteratureDetail.css'; // Import your custom CSS file
+import { useLocation } from 'react-router-dom';
 
 function LiteratureDetail() {
   const { year } = useParams();
 
+  const { data } = useLocation().state || { data: [] };
+
   // Example data for the carousel
-  const carouselItems = [
+  /*const carouselItems = [
     {
       id: 1,
       title: 'Poem 1',
@@ -74,7 +77,18 @@ function LiteratureDetail() {
       content: 'Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3Content of Poem 3',
     },
     
-  ];
+  ];*/
+  console.log('Raw Data:', data);
+  const carouselItems = Array.isArray(data)
+  ? data.map((item) => ({
+      id: item._id,
+      title: item.title,
+      content: item.relatedText, // Assuming relatedText is the content
+      year: item.year,
+    }))
+  : [];
+    console.log('carouselItems:', carouselItems);
+
 
   const [expandedSlides, setExpandedSlides] = useState({});
 
