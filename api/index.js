@@ -43,6 +43,7 @@ const User = mongoose.model("users", userSchema);
 const dataSchema = new mongoose.Schema({
   type: String,
   year: String,
+  title:String,
   relatedText: String,
   images: [
     {
@@ -53,7 +54,7 @@ const dataSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 // Data model
-const Data = mongoose.model("Data", dataSchema);
+const Data = mongoose.model("datas", dataSchema);
 
 // Multer configuration for file upload
 const storage = multer.diskStorage({
@@ -97,10 +98,11 @@ app.post("/", async (req, res) => {
 });
 
 // Route for handling file uploads
-app.post("/upload", upload.array("images"), async (req, res) => {
+app.post("/uploads", upload.array("images"), async (req, res) => {
+   
   try {
     // Access other form data (type, year, relatedText)
-    const { type, year, relatedText } = req.body;
+    const { type, year,title, relatedText } = req.body;
 
     // Access the array of uploaded files
     const images = req.files.map((file) => {
@@ -114,6 +116,7 @@ app.post("/upload", upload.array("images"), async (req, res) => {
     const newData = new Data({
       type,
       year,
+      title,
       relatedText,
       images,
     });
