@@ -17,6 +17,7 @@ import LiteratureDetail from './Details/LiteratureDetail.js';
 import SportsDetail from "./Details/SportsDetail.js";
 import AchievementDetail from "./Details/Achievements.js";
 import CocurricularDetail from "./Details/CocurricularDetail.js";
+import Edit from "./Details/Edit.js";
 
 function App(){
   return(
@@ -38,6 +39,7 @@ function App(){
       <Route path="/literature-detail" element={<LiteratureDetail/>}></Route>
       <Route path="/sports-detail" element={<SportsDetail/>}></Route>
        <Route path="/Achievements-detail" element={<AchievementDetail/>}></Route> 
+       <Route path="/Edit" element={<Edit/>}></Route>
       
       </Routes>
       </BrowserRouter>
