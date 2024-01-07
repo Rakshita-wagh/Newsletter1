@@ -78,6 +78,7 @@ function LiteratureDetail() {
     },
     
   ];*/
+  //abc
   console.log('Raw Data:', data);
   const carouselItems = Array.isArray(data)
   ? data.map((item) => ({
