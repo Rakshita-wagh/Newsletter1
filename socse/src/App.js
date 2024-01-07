@@ -38,7 +38,7 @@ function App(){
       <Route path="/literature-detail" element={<LiteratureDetail/>}></Route>
       <Route path="/sports-detail" element={<SportsDetail/>}></Route>
        <Route path="/Achievements-detail" element={<AchievementDetail/>}></Route> 
-       <Route path="/cocurricular-detail" element={<CocurricularDetail/>}></Route> 
+      
       </Routes>
       </BrowserRouter>
     </div>
