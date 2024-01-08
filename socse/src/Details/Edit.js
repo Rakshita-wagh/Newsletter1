@@ -1,4 +1,3 @@
-//hi
 import React, { useState } from "react";
 import { Form, Button, Container, Alert } from "react-bootstrap";
 import axios from "axios";
@@ -10,6 +9,7 @@ const YourFormComponent = () => {
   const [relatedText, setRelatedText] = useState("");
   const [images, setImages] = useState([]);
   const [submissionStatus, setSubmissionStatus] = useState(null);
+  const [fileInputKey, setFileInputKey] = useState(Date.now()); // Key for resetting file input
 
   const handleImageChange = (e) => {
     const files = e.target.files;
@@ -37,7 +37,7 @@ const YourFormComponent = () => {
       images.forEach((image, index) => {
         formData.append("images", image);
       });
-      
+
       // Assuming you have an API endpoint for storing data on your backend
       const response = await axios.post("http://localhost:8000/uploads", formData, {
         headers: {
@@ -56,6 +56,8 @@ const YourFormComponent = () => {
       setTitle("");
       setRelatedText("");
       setImages([]);
+      // Reset file input by updating key
+      setFileInputKey(Date.now());
 
     } catch (error) {
       console.error("Error storing data:", error);
@@ -125,6 +127,7 @@ const YourFormComponent = () => {
         <Form.Group controlId="formImages">
           <Form.Label>Upload Images</Form.Label>
           <Form.Control
+            key={fileInputKey} // Reset key to reset file input
             type="file"
             accept="image/*"
             multiple

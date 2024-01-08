@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -9,10 +9,10 @@ function LiteratureDetail() {
   const [carouselItems, setCarouselItems] = useState([]);
   const [expandedSlides, setExpandedSlides] = useState({});
 
+  const sliderRef = useRef(null);
+
   const location = useLocation();
   const { data } = location.state || {};
-  console.log(location.state);
-
 
   useEffect(() => {
     setCarouselItems(data);
@@ -30,12 +30,19 @@ function LiteratureDetail() {
     setExpandedSlides((prev) => ({ ...prev, [id]: true }));
   };
 
+  const handleNext = () => {
+    // Use slick slider method to move to the next slide
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
+
   return (
     <div className="literature-detail-container">
       <h2 className="poems-heading">Poems</h2>
 
       <div className="slider-box" style={{ height: 'auto' }}>
-        <Slider {...settings}>
+        <Slider {...settings} ref={sliderRef}>
           {carouselItems.map((item) => (
             <div key={item._id} className="carousel-slide">
               <h3>{item.title}</h3>
