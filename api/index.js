@@ -57,7 +57,14 @@ const Data = mongoose.model("datas", dataSchema);
 
 // Multer configuration for file upload
 
-const storage = multer.memoryStorage();
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, '/uploads');
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  }
+});
 
 const upload = multer({ storage: storage });
 
@@ -145,12 +152,35 @@ app.post('/poems', async (req, res) => {
   }
 });
 
+// app.get("/data/:type/:year", async (req, res) => {
+//   try {
+//     const { type, year } = req.params;
+
+//     // Adjust the Mongoose query to include image data
+//     const storedData = await Data.find({
+//       type: { $regex: new RegExp(`^${type}$`, 'i') },
+//       year
+//     }).populate('images'); // Adjust 'image' to the actual field name in your schema
+
+//     if (storedData.length === 0) {
+//       return res.status(404).json({ status: "fail", message: `No ${type} found for the specified year` });
+//     }
+
+//     res.json(storedData);
+//   } catch (error) {
+//     console.error("Error retrieving data:", error);
+//     res.status(500).json({ status: "fail", message: "Internal Server Error" });
+//   }
+// });
+
+
 app.get("/data/:type/:year", async (req, res) => {
   try {
     const { type, year } = req.params;
 
+    // Retrieve data without using populate
     const storedData = await Data.find({
-      type: { $regex: new RegExp(`^${type}$`, 'i') }, // Case-insensitive search
+      type: { $regex: new RegExp(`^${type}$`, 'i') },
       year
     });
 
@@ -164,6 +194,19 @@ app.get("/data/:type/:year", async (req, res) => {
     res.status(500).json({ status: "fail", message: "Internal Server Error" });
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const PORT = process.env.PORT || 8000;
 
