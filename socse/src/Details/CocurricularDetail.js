@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -8,9 +9,7 @@ import { useLocation } from 'react-router-dom';
 function CocurricularDetail() {
   const [carouselItems, setCarouselItems] = useState([]);
   const [expandedSlides, setExpandedSlides] = useState({});
-
   const sliderRef = useRef(null);
-
   const location = useLocation();
   const { data } = location.state || {};
 
@@ -38,9 +37,11 @@ function CocurricularDetail() {
 
   return (
     <div className="cocurricular-detail-container">
-      <h2 className="events-heading">Cocurricular Events</h2>
+      <h2 className="events-heading" style={{ textAlign: 'center' }}>
+        Cocurricular Events
+      </h2>
 
-      <div className="slider-box" style={{ height: 'auto' }}>
+      <div className="slider-box" style={{ height: 'auto', textAlign: 'center' }}>
         <Slider {...settings} ref={sliderRef}>
           {carouselItems.map((item) => (
             <div key={item._id} className="carousel-slide">
@@ -48,15 +49,14 @@ function CocurricularDetail() {
               {item.images.length > 0 && (
                 <div className="image-gallery">
                   {item.images.map((image, index) => (
-                  <img
-                  key={index}
-                  src={`http://localhost:8000/image/${item._id}/${index}`}  // Replace with the correct endpoint on your server
-                  alt={`Image ${index + 1} for ${item.title}`}
-                  className="event-image"
-                />
-                
-                 ))}
-
+                    <img
+                      key={index}
+                      src={`data:${image.contentType};base64,${image.data}`}
+                      alt={`Image ${index + 1} for ${item.title}`}
+                      className="event-image"
+                      style={{ maxWidth: '100%', maxHeight: '400px', display: 'inline-block' }}
+                    />
+                  ))}
                 </div>
               )}
               {expandedSlides[item._id] ? (

@@ -156,12 +156,25 @@ app.get("/data/:type/:year", async (req, res) => {
       return res.status(404).json({ status: "fail", message: `No ${type} found for the specified year` });
     }
 
-    res.json(storedData);
+    const responseData = storedData.map((item) => {
+      return {
+        _id: item._id,
+        title: item.title,
+        relatedText: item.relatedText,
+        images: item.images.map((image, index) => ({
+          data: image.data.toString('base64'), // Convert Buffer to base64
+          contentType: image.contentType,
+        })),
+      };
+    });
+
+    res.json(responseData);
   } catch (error) {
     console.error("Error retrieving data:", error);
     res.status(500).json({ status: "fail", message: "Internal Server Error" });
   }
 });
+
 
 const PORT = process.env.PORT || 8000;
 
