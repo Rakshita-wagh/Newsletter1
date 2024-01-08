@@ -8,7 +8,6 @@ import './Literature.css';
 function Achievements() {
 
   const navigate = useNavigate();
-
   const [selectedYearSports, setSelectedYearSports] = useState('');
   const [selectedYearTechnical, setSelectedYearTechnical] = useState('');
   const [selectedYearAcademics, setSelectedYearAcademics] = useState('');

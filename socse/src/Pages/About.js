@@ -18,7 +18,7 @@ const About = () => {
               className="img rounded-circle"
             />
             <h4 className='anand'>Anand Meti</h4>
-            <p>Mobile:msg</p>
+            <p className='num'>Mobile:12345678</p>
           </div>
           <div className="image2">
             <img
@@ -27,7 +27,7 @@ const About = () => {
               className="img rounded-circle"
             />
             <h4 className='uday'>Uday Kulkarni</h4>
-            <p>Mobile:msg</p>
+            <p className='num'>Mobile:12345678</p>
           </div>
         </div>
       </div>
@@ -36,52 +36,60 @@ const About = () => {
         <h1 className="text-center">Association Leads</h1>
         <div className='cordinate'>
           <div className='image'>
-        <img src={girl}/>
-        <img src={boy}/>
+        
+        <img src={boy} className='img1'/>
+        <img src={girl} className='img2'/>
         </div>
         </div>
         <div className='lead'>
           <div className="coordinate">
             <h2 className='module'>Cultural</h2>
             <ul>
+            <li>Sathwik</li>
               <li>Sakshi</li>
-              <li>Sathwik</li>
+              
             </ul>
           </div>
-          <div className="col-md-6">
+          <div className="coordinate">
             <h2 className='module'>Cocurricular</h2>
             <ul>
+            <li>Praveen</li>
               <li>Akshata</li>
-              <li>Praveen</li>
+              
             </ul>
           </div>
-          <div className="col-md-6">
+          <div className="coordinate">
             <h2 className='module'>Media</h2>
             <ul>
+            <li>Prateeth</li>
               <li>Rakshita</li>
-              <li>Prateeth</li>
+              
             </ul>
           </div>
-          <div className="col-md-6">
+          <div className="coordinate">
             <h2 className='module'>Sports</h2>
             <ul>
+            <li>Bharat</li>
               <li>Apeksha</li>
-              <li>Bharat</li>
+              
             </ul>
           </div>
-          <div className="col-md-6">
+          <div className="coordinate">
             <h2 className='module'>Literature</h2>
             <ul>
-              <li>Gouri</li>
-              <li>Murali</li>
+            <li>Murali</li>
+            <li>Gouri</li> 
             </ul>
           </div>
-          <div className="col-md-6">
+          <div className="coordinate">
             <h2 className='module'>Programming</h2>
-            <ul>
-              <li>-</li>
-              <li>Lead B</li>
-            </ul>
+              <li>
+              <div className='coordinate1'>
+              <ul>Shuchit</ul>
+              <ul>-</ul>
+              </div>
+            </li>
+            
           </div>
         </div>
       </div>
