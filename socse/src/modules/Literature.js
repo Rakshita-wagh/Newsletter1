@@ -19,24 +19,7 @@ function Literature() {
     setSelectedYearArticles(event.target.value);
   };
 
-/*
-  const handleSubmit = () => {
-    if (selectedYearPoems && selectedYearArticles) {
-      window.alert("Please select either poems or articles, not both.");
-      setSelectedYearPoems('');
-      setSelectedYearArticles('');
-    } else if (selectedYearPoems) {
-      //history.push(`/poems/${selectedYearPoems}`);
-      navigate('/literature-detail');
-    } else if (selectedYearArticles) {
-      //history.push(`/articles/${selectedYearArticles}`);
-      navigate('/literature-detail');
-    } else {
-      window.alert("Please select either poems or articles.");
-    }
-  };
 
-  */
   const handleSubmit = async () => {
     let response;
     let responseText;

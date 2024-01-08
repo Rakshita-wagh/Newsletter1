@@ -19,6 +19,7 @@ import AchievementDetail from "./Details/Achievements.js";
 import CocurricularDetail from "./Details/CocurricularDetail.js";
 import Edit from "./Details/Edit.js";
 
+
 function App(){
   return(
     <div>

@@ -136,14 +136,17 @@ app.post("/uploads", upload.array("images"), async (req, res) => {
   }
 });
 
-// Route to retrieve stored data (for testing purposes)
-app.get("/data", async (req, res) => {
+app.post('/poems', async (req, res) => {
+  const { year } = req.query;
+
   try {
-    const storedData = await Data.find();
-    res.json(storedData);
+    // Assuming you have a "Data" model defined using mongoose
+    const poems = await Data.find({ year, type: 'Poems' });
+
+    res.json(poems);
   } catch (error) {
-    console.error("Error retrieving data:", error);
-    res.status(500).json({ status: "fail", message: "Internal Server Error" });
+    console.error('Error fetching poems:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
