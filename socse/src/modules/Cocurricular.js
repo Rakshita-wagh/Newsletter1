@@ -13,7 +13,7 @@ function Cocurricular() {
   const handleCocurricularChange = (event) => {
     setSelectedYearCocurricular(event.target.value);
   };
-
+/*
   const handleSubmit = () => {
     if (selectedYearCocurricular) {
       //history.push(`/poems/${selectedYearPoems}`);
@@ -22,8 +22,8 @@ function Cocurricular() {
      else {
       window.alert("Please select either Sports or Techincal or academics.");
     }
-  };
-  /*
+  };*/
+  
   const handleSubmit = async () => {
     try {
       let response;
@@ -51,7 +51,7 @@ function Cocurricular() {
       // Handle the error, e.g., display an error message to the user
     }
   };
-*/
+
   return (
     <div className="Cocurricular-page">
       <body>
