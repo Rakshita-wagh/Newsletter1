@@ -48,13 +48,15 @@ function CocurricularDetail() {
               {item.images.length > 0 && (
                 <div className="image-gallery">
                   {item.images.map((image, index) => (
-                    <img
-                      key={index}
-                      src={`http://localhost:8000/data/${item.type}/${item.year}/${image.filename}`}
-                      alt={`Image ${index + 1} for ${item.title}`}
-                      className="event-image"
-                    />
-                  ))}
+                  <img
+                  key={index}
+                  src={`http://localhost:8000/image/${item._id}/${index}`}  // Replace with the correct endpoint on your server
+                  alt={`Image ${index + 1} for ${item.title}`}
+                  className="event-image"
+                />
+                
+                 ))}
+
                 </div>
               )}
               {expandedSlides[item._id] ? (

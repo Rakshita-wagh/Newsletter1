@@ -6,10 +6,8 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import multer from 'multer';
 import path from 'path';
-import fs from 'fs';
 
 dotenv.config();
-
 
 // MongoDB connection
 const uri = 'mongodb+srv://vaishnavi:vaish@socse.yxckbab.mongodb.net/your-database-name?retryWrites=true&w=majority';
@@ -20,7 +18,6 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch((err) => {
     console.log(err);
   });
-
 
 // User schema
 const userSchema = new mongoose.Schema({
@@ -46,8 +43,8 @@ const dataSchema = new mongoose.Schema({
   relatedText: String,
   images: [
     {
-      filename: String,
-      path: String,
+      data: Buffer,
+      contentType: String,
     },
   ],
 }, { timestamps: true });
@@ -56,17 +53,11 @@ const dataSchema = new mongoose.Schema({
 const Data = mongoose.model("datas", dataSchema);
 
 // Multer configuration for file upload
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, '/uploads');
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-  }
+const storage = multer.memoryStorage(); // Store file data in memory
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 1024 * 1024 * 5 }, // Limit file size to 5 MB
 });
-
-const upload = multer({ storage: storage });
 
 const app = express();
 
@@ -105,13 +96,14 @@ app.post("/", async (req, res) => {
 app.post("/uploads", upload.array("images"), async (req, res) => {
   try {
     // Access other form data (type, year, relatedText)
+    console.log(req.body);
     const { type, year, title, relatedText, userId } = req.body;
 
     // Access the array of uploaded files
     const images = req.files.map((file) => {
       return {
-        filename: file.filename,
-        path: file.path,
+        data: file.buffer,
+        contentType: file.mimetype,
       };
     });
 
@@ -152,28 +144,6 @@ app.post('/poems', async (req, res) => {
   }
 });
 
-// app.get("/data/:type/:year", async (req, res) => {
-//   try {
-//     const { type, year } = req.params;
-
-//     // Adjust the Mongoose query to include image data
-//     const storedData = await Data.find({
-//       type: { $regex: new RegExp(`^${type}$`, 'i') },
-//       year
-//     }).populate('images'); // Adjust 'image' to the actual field name in your schema
-
-//     if (storedData.length === 0) {
-//       return res.status(404).json({ status: "fail", message: `No ${type} found for the specified year` });
-//     }
-
-//     res.json(storedData);
-//   } catch (error) {
-//     console.error("Error retrieving data:", error);
-//     res.status(500).json({ status: "fail", message: "Internal Server Error" });
-//   }
-// });
-
-
 app.get("/data/:type/:year", async (req, res) => {
   try {
     const { type, year } = req.params;
@@ -194,19 +164,6 @@ app.get("/data/:type/:year", async (req, res) => {
     res.status(500).json({ status: "fail", message: "Internal Server Error" });
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const PORT = process.env.PORT || 8000;
 
