@@ -150,6 +150,29 @@ app.post('/poems', async (req, res) => {
   }
 });
 
+
+app.get("/data/:type/:year", async (req, res) => {
+  try {
+    const { type, year } = req.params;
+
+    const storedData = await Data.find({
+      type: { $regex: new RegExp(`^${type}$`, 'i') }, // Case-insensitive search
+      year
+    });
+
+    if (storedData.length === 0) {
+      return res.status(404).json({ status: "fail", message: `No ${type} found for the specified year` });
+    }
+
+    res.json(storedData);
+  } catch (error) {
+    console.error("Error retrieving data:", error);
+    res.status(500).json({ status: "fail", message: "Internal Server Error" });
+  }
+});
+
+
+
 const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {

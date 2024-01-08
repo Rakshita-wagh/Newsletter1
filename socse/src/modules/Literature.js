@@ -21,46 +21,41 @@ function Literature() {
 
 
   const handleSubmit = async () => {
-    let response;
-    let responseText;
-  
     try {
+      let response;
+      let selectedType;
       if (selectedYearPoems && selectedYearArticles) {
         window.alert("Please select either poems or articles, not both.");
         setSelectedYearPoems('');
         setSelectedYearArticles('');
-        return;
       }
-  
-      if (selectedYearPoems) {
-        response = await fetch(`/api/poems/${selectedYearPoems}`)
-
+      else if (selectedYearPoems) {
+        selectedType = 'Poems';
+        response = await fetch(`http://localhost:8000/data/${selectedType}/${selectedYearPoems}`);
       } else if (selectedYearArticles) {
-        response = await fetch(`/api/articles/${selectedYearArticles}`);
+        selectedType = 'Articles';
+        response = await fetch(`http://localhost:8000/data/${selectedType}/${selectedYearArticles}`);
       } else {
         window.alert("Please select either poems or articles.");
         return;
       }
-  
+      console.log(`URL: http://localhost:8000/data/${selectedType}/${selectedYearPoems || selectedYearArticles}`);
+
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
   
-      responseText = await response.text();
-      console.log('Fetched Data:', responseText);
+      const responseData = await response.json();
   
-      // Determine the route based on the selected type (poems or articles)
-      const route = selectedYearPoems ? '/poems' : '/articles';
+      const route = selectedType === 'poems' ? '/poems' : '/articles';
   
-      navigate('/literature-detail', { state: { data: responseText, route } });
-  
+      navigate('/literature-detail', { state: { data: responseData, route } });
     } catch (error) {
       console.error('Error fetching data:', error);
-      if (response) {
-        console.log('Full response:', responseText);
-      }
+      // Handle the error, e.g., display an error message to the user
     }
   };
+  
   
   
 

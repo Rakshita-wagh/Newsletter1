@@ -46,6 +46,43 @@ function Achievements() {
       window.alert("Please select either Sports or Techincal or academics.");
     }
   };
+  /*
+  const handleSubmit = async () => {
+    try {
+      let response;
+      let selectedCategory;
+  
+      if (selectedYearSports) {
+        selectedCategory = 'Sports';
+        response = await fetch(`http://localhost:8000/data/${selectedCategory}/${selectedYearSports}`);
+      } else if (selectedYearTechnical) {
+        selectedCategory = 'Technical';
+        response = await fetch(`http://localhost:8000/data/${selectedCategory}/${selectedYearTechnical}`);
+      } else if (selectedYearAcademics) {
+        selectedCategory = 'Academics';
+        response = await fetch(`http://localhost:8000/data/${selectedCategory}/${selectedYearAcademics}`);
+      } else {
+        window.alert("Please select one category: Sports, Technical, or Academics.");
+        return;
+      }
+  
+      //console.log(`URL: http://localhost:8000/data/${selectedCategory}/${selectedYear}`);
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const responseData = await response.json();
+  
+      const route = `/achievements-${selectedCategory.toLowerCase()}`;
+  
+      navigate('/Achievements-detail', { state: { data: responseData, route } });
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      // Handle the error, e.g., display an error message to the user
+    }
+  };
+  */
   return (
     <div className="Achievements-page">
       <body>
