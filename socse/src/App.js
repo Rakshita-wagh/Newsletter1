@@ -18,6 +18,7 @@ import SportsDetail from "./Details/SportsDetail.js";
 import AchievementDetail from "./Details/Achievements.js";
 import CocurricularDetail from "./Details/CocurricularDetail.js";
 import Edit from "./Details/Edit.js";
+import TechnicalDetail from "./Details/TechnicalDetail.js";
 
 
 function App(){
@@ -42,7 +43,7 @@ function App(){
        <Route path="/Achievements-detail" element={<AchievementDetail/>}></Route> 
        <Route path="/Edit" element={<Edit/>}></Route>
        <Route path="/cocurricular-detail" element={<CocurricularDetail/>}></Route>
-      
+       <Route path="/technical-detail" element={<TechnicalDetail/>}></Route>
       </Routes>
       </BrowserRouter>
     </div>
