@@ -35,7 +35,28 @@
   background-color: grey;
 }
 
+.num{
+  margin-left: 9%;
+  margin-top: 15px;
+  font-size: 20px;
+}
 
+.img1{
+  margin-left: 600%;
+  margin-top: 15px;
+  width: 100px;
+  height: 80px;
+}
+.img2{
+  padding-left: 20%;
+  margin-top: 15px;
+  width: 100px;
+  height: 80px;
+}
 
+.coordinate1{
+  display: flex;
+  margin-top: 0px;
+}
  
 
