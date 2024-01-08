@@ -21,7 +21,8 @@ function Cocurricular() {
             <option value="2021">2021</option>
         </select>
      </div>
-    <button className="submit-button">Submit</button>
+     <button className="submit-button" onClick={handleSubmit}>Submit</button>
+
 </div>
 
 </body>
