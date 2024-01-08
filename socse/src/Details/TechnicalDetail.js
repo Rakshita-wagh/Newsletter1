@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 
-function AchievementsDetail() {
+function TechnicalDetail() {
   const [carouselItems, setCarouselItems] = useState([]);
   const [expandedSlides, setExpandedSlides] = useState({});
   const sliderRef = useRef(null);
@@ -35,9 +35,9 @@ function AchievementsDetail() {
   };
 
   return (
-    <div className="achievements-detail-container">
-      <h2 className="achievements-heading" style={{ textAlign: 'center' }}>
-        Achievements
+    <div className="technical-detail-container">
+      <h2 className="events-heading" style={{ textAlign: 'center' }}>
+        Technical Events
       </h2>
 
       <div className="slider-box" style={{ height: 'auto', textAlign: 'center' }}>
@@ -81,4 +81,4 @@ function AchievementsDetail() {
   );
 }
 
-export default AchievementsDetail;
+export default TechnicalDetail;
