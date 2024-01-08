@@ -1,3 +1,5 @@
+// server.js
+
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
@@ -8,6 +10,7 @@ import fs from 'fs';
 
 dotenv.config();
 
+
 // MongoDB connection
 const uri = 'mongodb+srv://vaishnavi:vaish@socse.yxckbab.mongodb.net/your-database-name?retryWrites=true&w=majority';
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -17,6 +20,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch((err) => {
     console.log(err);
   });
+
 
 // User schema
 const userSchema = new mongoose.Schema({
@@ -38,7 +42,7 @@ const User = mongoose.model("users", userSchema);
 const dataSchema = new mongoose.Schema({
   type: String,
   year: String,
-  title:String,
+  title: String,
   relatedText: String,
   images: [
     {
@@ -85,7 +89,6 @@ app.post("/", async (req, res) => {
       } else {
         console.log("User exists but password doesn't match");
         res.json("notexist");
-        ;
       }
     } else {
       console.log("User not found");
@@ -99,10 +102,9 @@ app.post("/", async (req, res) => {
 
 // Route for handling file uploads
 app.post("/uploads", upload.array("images"), async (req, res) => {
-  console.log(req.body);
   try {
     // Access other form data (type, year, relatedText)
-    const { type, year,title, relatedText, userId } = req.body;
+    const { type, year, title, relatedText, userId } = req.body;
 
     // Access the array of uploaded files
     const images = req.files.map((file) => {
@@ -124,14 +126,13 @@ app.post("/uploads", upload.array("images"), async (req, res) => {
 
     await newData.save();
 
-    // Remove the uploaded files after processing (optional)
-    images.forEach((image) => {
-      fs.unlinkSync(image.path);
-    });
-
+    // Send a response with success status and saved data
     res.status(200).json({ status: "success", message: "Data stored successfully", images });
+
   } catch (error) {
     console.error("Error storing data:", error);
+
+    // Send a response with failure status
     res.status(500).json({ status: "fail", message: "Internal Server Error" });
   }
 });
@@ -149,7 +150,6 @@ app.post('/poems', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-
 
 app.get("/data/:type/:year", async (req, res) => {
   try {
@@ -170,8 +170,6 @@ app.get("/data/:type/:year", async (req, res) => {
     res.status(500).json({ status: "fail", message: "Internal Server Error" });
   }
 });
-
-
 
 const PORT = process.env.PORT || 8000;
 

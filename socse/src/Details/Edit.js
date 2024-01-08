@@ -34,9 +34,9 @@ const YourFormComponent = () => {
       if (relatedText) formData.append("relatedText", relatedText);
 
       images.forEach((image, index) => {
-        formData.append(`image${index + 1}`, image);
+        formData.append("images", image);
       });
-
+      
       // Assuming you have an API endpoint for storing data on your backend
       const response = await axios.post("http://localhost:8000/uploads", formData, {
         headers: {
