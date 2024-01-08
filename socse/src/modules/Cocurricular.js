@@ -23,7 +23,35 @@ function Cocurricular() {
       window.alert("Please select either Sports or Techincal or academics.");
     }
   };
+  /*
+  const handleSubmit = async () => {
+    try {
+      let response;
+      let selectedType;
+      if (selectedYearCocurricular) {
+        selectedType = 'Cocurricular';
+        response = await fetch(`http://localhost:8000/data/${selectedType}/${selectedYearCocurricular}`);
+      } else {
+        window.alert("Please select the year.");
+        return;
+      }
+      console.log(`URL: http://localhost:8000/data/${selectedType}/${selectedYearCocurricular}`);
 
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const responseData = await response.json();
+  
+      const route = selectedType === 'Cocurricular' ? '/cocurricular' : '';
+  
+      navigate('/literature-detail', { state: { data: responseData, route } });
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      // Handle the error, e.g., display an error message to the user
+    }
+  };
+*/
   return (
     <div className="Cocurricular-page">
       <body>
