@@ -20,23 +20,45 @@ function Literature() {
   };
 
 
-  const handleSubmit = () => {
-    if (selectedYearPoems && selectedYearArticles) {
-      window.alert("Please select either poems or articles, not both.");
-      setSelectedYearPoems('');
-      setSelectedYearArticles('');
-    } else if (selectedYearPoems) {
-      //history.push(`/poems/${selectedYearPoems}`);
-      navigate('/literature-detail');
-    } else if (selectedYearArticles) {
-      //history.push(`/articles/${selectedYearArticles}`);
-      navigate('/literature-detail');
-    } else {
-      window.alert("Please select either poems or articles.");
+  const handleSubmit = async () => {
+    try {
+      let response;
+      let selectedType;
+      if (selectedYearPoems && selectedYearArticles) {
+        window.alert("Please select either poems or articles, not both.");
+        setSelectedYearPoems('');
+        setSelectedYearArticles('');
+      }
+      else if (selectedYearPoems) {
+        selectedType = 'Poems';
+        response = await fetch(`http://localhost:8000/data/${selectedType}/${selectedYearPoems}`);
+      } else if (selectedYearArticles) {
+        selectedType = 'Articles';
+        response = await fetch(`http://localhost:8000/data/${selectedType}/${selectedYearArticles}`);
+      } else {
+        window.alert("Please select either poems or articles.");
+        return;
+      }
+      console.log(`URL: http://localhost:8000/data/${selectedType}/${selectedYearPoems || selectedYearArticles}`);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const responseData = await response.json();
+  
+      const route = selectedType === 'poems' ? '/poems' : '/articles';
+  
+      navigate('/literature-detail', { state: { data: responseData, route } });
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      // Handle the error, e.g., display an error message to the user
     }
   };
-
   
+  
+  
+
   return (
     <div className="literature-page">
       <body>
