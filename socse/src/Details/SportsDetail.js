@@ -1,79 +1,83 @@
-import React from 'react';
-import { Carousel } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import events from '../images/events.jpg';
-import sports from '../images/sports.jpg';
-import literature from '../images/literature.jpg';
-import indoor from '../images/indoor.jpg';
-import { useNavigate } from 'react-router-dom';
-import './CocurricularDetail.css'; // Import the CSS file
+import React, { useState, useEffect, useRef } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
-const SportsDetail = () => {
+function SportsDetail() {
+  const [carouselItems, setCarouselItems] = useState([]);
+  const [expandedSlides, setExpandedSlides] = useState({});
+  const sliderRef = useRef(null);
 
-  const navigate=useNavigate();
-  const containerStyle = {
-    backgroundImage: `url("${indoor}")`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    width: '100%',
-    height: '400px',
-    position: 'relative', // Change to relative if needed
+  const location = useLocation();
+  const { data } = location.state || {};
+
+  useEffect(() => {
+    setCarouselItems(data);
+  }, [data]);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
   };
 
-  const editButtonStyle = {
-    position: 'absolute',
-    top: '10px',
-    right: '30px',
-    color:'white',
-    background:'grey',
-    width:'70px',
-    height:'30px',
-    borderRadius:'10px'
+  const handleReadMore = (id) => {
+    setExpandedSlides((prev) => ({ ...prev, [id]: true }));
   };
 
-  const carouselContainerStyle = {
-    position: 'absolute',
-    top: '80%',
-    left: 0,
-    right: 0,
-    transform: 'translateY(-43%)',
-  };
-
-  const handleEditClick = () => {
-    navigate('/edit'); 
+  const handleNext = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
   };
 
   return (
-    <div style={containerStyle}>
-      <button style={editButtonStyle} onClick={handleEditClick}>Edit</button>
-      <Carousel style={carouselContainerStyle}>
-        <Carousel.Item>
-          <img
-            className="d-block mx-auto"
-            src={events}
-            alt="Slide 1"
-            style={{ width: '500px', height: '400px', marginTop: '17%' }}
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block mx-auto"
-            src={sports}
-            alt="Slide 2"
-            style={{ width: '500px', height: '400px', marginTop: '17%' }}
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block mx-auto"
-            src={literature}
-            alt="Slide 3"
-            style={{ width: '500px', height: '400px', marginTop: '17%' }}
-          />
-        </Carousel.Item>
-      </Carousel>
+    <div className="sports-detail-container">
+      <h2 className="sports-heading">Sports</h2>
+
+      <div className="slider-box" style={{ height: 'auto' }}>
+        <Slider {...settings} ref={sliderRef}>
+          {carouselItems.map((item) => (
+            <div key={item._id} className="carousel-slide">
+              <h3>{item.title}</h3>
+              {item.images.length > 0 && (
+                <div className="image-gallery">
+                  {item.images.map((image, index) => (
+                    <img
+                      key={index}
+                      src={`data:${image.contentType};base64,${image.data}`}
+                      alt={`Image ${index + 1} for ${item.title}`}
+                      className="event-image"
+                      style={{ maxWidth: '100%', maxHeight: '400px', display: 'inline-block' }}
+                    />
+                  ))}
+                </div>
+              )}
+              {expandedSlides[item._id] ? (
+                <div>
+                  <p>{item.relatedText}</p>
+                </div>
+              ) : (
+                <div>
+                  <p>{item.relatedText.substring(0, 100)}</p>
+                  <button
+                    className="read-more-button"
+                    onClick={() => handleReadMore(item._id)}
+                  >
+                    Read More
+                  </button>
+                </div>
+              )}
+            </div>
+          ))}
+        </Slider>
+      </div>
     </div>
   );
-};
+}
 
 export default SportsDetail;
