@@ -7,6 +7,7 @@ import technical from '../images/techical.jpg';
 import cocurricular from '../images/co-curricular.png';
 import achievements from '../images/acheivements.jpg';
 import  Notification from '../modules/notification';
+import Download  from '../modules/download';
 import {Button} from 'react-bootstrap';
 
 
@@ -33,6 +34,8 @@ function Home () {
   const Spo = () => navigate('/Sports');
   const Tech = () => navigate('/Technical');
   const Ach = () => navigate('/Achievements');
+  const load = () => navigate('/Download');
+
   
   
   
@@ -71,7 +74,7 @@ function Home () {
         
 
         <div >
-        <Button className="button" variant="outline-danger"><b>Download</b></Button>
+        <Button className="button" variant="outline-danger" onClick={load}><b>Download</b></Button>
         </div>
         </div>
        </>
