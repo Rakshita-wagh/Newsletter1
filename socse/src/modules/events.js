@@ -1,13 +1,42 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import './Literature.css';
 
 
-function Events() {
+
+  function Events() {
+    const navigate = useNavigate();
+    const [selectedYearEvents, setSelectedYearEvents] = useState('');
+  
+    const handleEventsChange = (event) => {
+      setSelectedYearEvents(event.target.value);
+    };
+    
+    const handleSubmit = async () => {
+      try {
+        if (!selectedYearEvents) {
+          window.alert("Please select the year.");
+          return;
+        }
+  
+        const response = await fetch(`http://localhost:8000/data/Events/${selectedYearEvents}`);
+  
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+  
+        const responseData = await response.json();
+  
+        navigate('/events-detail', { state: { data: responseData } });
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        // Handle the error, e.g., display an error message to the user
+      }
+    };
   return (
-    <div className="Achievements-page">
-      <body>
+    <div className="Events-page">
+    
 
 <div class="container">
     <h1 class="center">Events</h1>
@@ -21,10 +50,9 @@ function Events() {
             <option value="2021">2021</option>
         </select>
      </div>
-    <button className="submit-button">Submit</button>
+     <button className="submit-button" onClick={handleSubmit}>Submit</button>
 </div>
 
-</body>
     </div>
   );
 }
