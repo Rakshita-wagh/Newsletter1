@@ -4,34 +4,53 @@ import './Literature.css';
 
 
 function Sports() {
-
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [selectedYearIndoor, setSelectedYearIndoor] = useState('');
   const [selectedYearOutdoor, setSelectedYearOutdoor] = useState('');
 
   const handleIndoorChange = (event) => {
     setSelectedYearIndoor(event.target.value);
   };
-
   const handleOutdoorChange = (event) => {
     setSelectedYearOutdoor(event.target.value);
   };
 
+  const handleSubmit = async () => {
+    try {
+      let response;
+      let selectedType;
+      if (selectedYearIndoor && selectedYearOutdoor) {
+        window.alert("Please select either Indoor or Outdoor, not both.");
+        setSelectedYearIndoor('');
+        setSelectedYearOutdoor('');
+      }
+      else if (selectedYearIndoor) {
+        selectedType = 'Indoor';
+        response = await fetch(`http://localhost:8000/data/${selectedType}/${selectedYearIndoor}`);
+      } else if (selectedYearOutdoor) {
+        selectedType = 'Outdoor';
+        response = await fetch(`http://localhost:8000/data/${selectedType}/${selectedYearOutdoor}`);
+      } else {
+        window.alert("Please select either Indoor or Outdoor.");
+        return;
+      }
+      console.log(`URL: http://localhost:8000/data/${selectedType}/${selectedYearIndoor || selectedYearOutdoor}`);
 
-  const handleSubmit = () => {
-    if (selectedYearIndoor && selectedYearOutdoor) {
-      window.alert("Please select either Indoor or Outdoor, not both.");
-      setSelectedYearIndoor('');
-      setSelectedYearOutdoor('');
-    } else if (selectedYearIndoor) {
-      //history.push(`/poems/${selectedYearPoems}`);
-      navigate('/sports-detail');
-    } else if (selectedYearOutdoor) {
-      //history.push(`/articles/${selectedYearArticles}`);
-    } else {
-      window.alert("Please select either Indoor or Outdoor.");
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const responseData = await response.json();
+  
+      const route = selectedType === 'indoor' ? '/indoor' : '/outdoor';
+  
+      navigate('/sports-detail', { state: { data: responseData, route } });
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      // Handle the error, e.g., display an error message to the user
     }
   };
+
   return (
     <div className="Sports-page">
       <body>
