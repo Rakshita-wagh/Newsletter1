@@ -32,8 +32,18 @@
 }
 
 .container{
-  background-color: grey;
+  background-color: rgb(190, 185, 185);
+  width: 300px; /* Adjust the width as needed */
+  height: 340px; /* Adjust the height as needed */
+  padding: 10px;
+  border-radius: 8px;
+  float: left;
 }
+
+ 
+
+
+
 
 
 
