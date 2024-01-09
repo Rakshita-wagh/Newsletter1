@@ -35,44 +35,39 @@ function EventDetail() {
     }
   };
 
+  const Card = ({ item }) => (
+    <div className="card">
+      <h3 className="cardTitle">{item.title}</h3>
+      <img
+        src={`data:${item.images[0].contentType};base64,${item.images[0].data}`}
+        alt={`Image for ${item.title}`}
+        className="cardImage"
+      />
+      <div className="cardText">
+        
+        {/* {expandedSlides[item._id] ? (
+          <p className="cardDescription">{item.relatedText}</p>
+        ) : (
+          <p className="cardDescription">{item.relatedText.substring(0, 100)}</p>
+        )}
+        <button
+          className="readMoreButton"
+          onClick={() => handleReadMore(item._id)}
+        >
+          Read More
+        </button> */}
+      </div>
+    </div>
+  );
+
   return (
     <div className="events-detail-container">
-      <h2 className="events-heading">Sports</h2>
+      <h2 className="events-heading">Events</h2>
 
       <div className="slider-box" style={{ height: 'auto' }}>
         <Slider {...settings} ref={sliderRef}>
           {carouselItems.map((item) => (
-            <div key={item._id} className="carousel-slide">
-              <h3>{item.title}</h3>
-              {item.images.length > 0 && (
-                <div className="image-gallery">
-                  {item.images.map((image, index) => (
-                    <img
-                      key={index}
-                      src={`data:${image.contentType};base64,${image.data}`}
-                      alt={`Image ${index + 1} for ${item.title}`}
-                      className="event-image"
-                      style={{ maxWidth: '100%', maxHeight: '400px', display: 'inline-block' }}
-                    />
-                  ))}
-                </div>
-              )}
-              {expandedSlides[item._id] ? (
-                <div>
-                  <p>{item.relatedText}</p>
-                </div>
-              ) : (
-                <div>
-                  <p>{item.relatedText.substring(0, 100)}</p>
-                  <button
-                    className="read-more-button"
-                    onClick={() => handleReadMore(item._id)}
-                  >
-                    Read More
-                  </button>
-                </div>
-              )}
-            </div>
+            <Card key={item._id} item={item} />
           ))}
         </Slider>
       </div>

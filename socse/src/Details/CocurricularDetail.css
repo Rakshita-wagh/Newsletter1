@@ -25,6 +25,24 @@
     height: 50vh; /* Adjust the height as needed */
     margin-top: 0vh; /* Adjust or remove margin-top to bring the card closer to the navigation bar */
   }
+  .events-detail-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust the height as needed */
+    margin-top: 0vh; /* Adjust or remove margin-top to bring the card closer to the navigation bar */
+
+  }
+  .sports-detail-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh; /* Adjust the height as needed */
+    margin-top: 0vh; /* Adjust or remove margin-top to bring the card closer to the navigation bar */
+
+  }
   
   .slider-box {
     width: 100%;
