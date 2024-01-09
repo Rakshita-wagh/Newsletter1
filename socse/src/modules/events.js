@@ -43,7 +43,8 @@ import './Literature.css';
 
     <div class="content">
         <h2>Select the year:</h2>
-        <select >
+        <select value={selectedYearEvents} onChange={handleEventsChange}>
+            
             <option disabled selected value="">Select Year</option>
             <option value="2023">2023</option>
             <option value="2022">2022</option>
