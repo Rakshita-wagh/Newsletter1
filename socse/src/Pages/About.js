@@ -5,7 +5,7 @@ import boy from '../images/boy.png';
 import girl from '../images/girl.png';
 const About = () => {
   return (
-    <div className="container mt-4">
+    <div className="container2">
       <div className="mb-4">
         <div className='border-left border-right border-bottom'>
           <h1 className="text-center">Association Coordinators</h1>

@@ -87,7 +87,15 @@
   float: left;
 }
 
-
+.container2{
+  background-color: rgb(234, 221, 221);
+  width: 90%; /* Adjust the width as needed */
+  height: 80%; /* Adjust the height as needed */
+  padding: 10px;
+  border-radius: 8px;
+  float: left;
+  margin-left: 50px;
+}
 
 .num{
   margin-left: 9%;
@@ -96,13 +104,13 @@
 }
 
 .img1{
-  margin-left: 600%;
+  margin-left: 620%;
   margin-top: 15px;
   width: 100px;
   height: 80px;
 }
 .img2{
-  padding-left: 35%;
+  margin-left: 79%;
   margin-top: 15px;
   width: 100px;
   height: 80px;
