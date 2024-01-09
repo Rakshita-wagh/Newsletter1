@@ -54,11 +54,6 @@ function Cocurricular() {
       </div>
         </select>
      </div>
-     <button className="submit-button" onClick={handleSubmit}>Submit</button>
-</div>
-
-</body>
-    </div>
   );
 }
 
