@@ -1,0 +1,95 @@
+/* CocurricularDetail.css */
+.technical-detail-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust the height as needed */
+    margin-top: 0vh; /* Adjust or remove margin-top to bring the card closer to the navigation bar */
+
+}
+.achievements-detail-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust the height as needed */
+    margin-top: 0vh; 
+
+}
+.cocurricular-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh; /* Adjust the height as needed */
+    margin-top: 0vh; /* Adjust or remove margin-top to bring the card closer to the navigation bar */
+  }
+  
+  .slider-box {
+    width: 100%;
+    max-width: 800px; /* Adjust the max-width as needed */
+    margin-top: 10px; /* Adjust the margin as needed */
+    margin-bottom: 10px; /* Add margin-bottom to shift the slider box up */
+    position: relative;
+    z-index: 1;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Adjust the width as needed */
+    max-width: 800px; /* Adjust the max-width as needed */
+    height: 500px; /* Set the height to 500px */
+    position: relative;
+    z-index: 2;
+    margin-top: 0px; /* Remove margin-top or set it to 0 */
+  }
+  
+  /* Rest of the styles remain the same */
+  
+  .cardImage {
+    width: 100%;
+    height: 300px;
+    object-fit: cover; /* Ensure the image covers the entire container while maintaining aspect ratio */
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .cardText {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%; /* Ensure the cardText takes the full height */
+  }
+  
+  .cardTitle {
+    margin: 0 0 8px;
+    font-size: 2rem; /* Adjust the font size as needed */
+    font-weight: bold;
+  }
+  
+  .cardDescription {
+    margin: 0 0 16px;
+    font-size: 1rem;
+  }
+  
+  .readMoreButton {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: auto; /* Center the button at the bottom */
+  }
+  
+  .events-heading {
+    margin-top: 5px;
+  }
+  

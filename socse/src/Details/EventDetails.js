@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 
-function SportsDetail() {
+function EventDetail() {
   const [carouselItems, setCarouselItems] = useState([]);
   const [expandedSlides, setExpandedSlides] = useState({});
   const sliderRef = useRef(null);
@@ -36,8 +36,8 @@ function SportsDetail() {
   };
 
   return (
-    <div className="sports-detail-container">
-      <h2 className="sports-heading">Sports</h2>
+    <div className="events-detail-container">
+      <h2 className="events-heading">Sports</h2>
 
       <div className="slider-box" style={{ height: 'auto' }}>
         <Slider {...settings} ref={sliderRef}>
@@ -80,4 +80,4 @@ function SportsDetail() {
   );
 }
 
-export default SportsDetail;
+export default EventDetail;

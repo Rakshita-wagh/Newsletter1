@@ -1,46 +1,56 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './LiteratureDetail.css'; // Import your custom CSS file
-export const poem1Image = require('../images/events.jpg');
-function Achievements() {
-  const { year } = useParams();
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
-  // Example data for the carousel
-  const carouselItems = [
-    {
-      id: 1,
-      title: 'Poem 1',
-      name: 'Author 1',
-      year: 2024,
-      achievements: 'Achievement 1: Something notable\nAchievement 2: Another achievement',
-      image: poem1Image,
-      content: 'Content of Poem 1 ...',
-    },
-    {
-        id: 2,
-        title: 'Poem 1',
-        name: 'Author 1',
-        year: 2024,
-        achievements: 'Achievement 1: Something notable\nAchievement 2: Another achievement',
-        image: 'path/to/image1.jpg',
-        content: 'Content of Poem 1 ...',
-      },
-      {
-        id: 3,
-        title: 'Poem 1',
-        name: 'Author 1',
-        year: 2024,
-        achievements: 'Achievement 1: Something notable\nAchievement 2: Another achievement',
-        image: 'path/to/image1.jpg',
-        content: 'Content of Poem 1 ...',
-      },
-    // Add more items as needed
-  ];
+// Card component
+const Card = ({ item, expanded, onReadMoreClick }) => (
+  <div className="carousel-slide">
+    <h3>{item.title}</h3>
+    {item.images.length > 0 && (
+      <div className="image-gallery">
+        {item.images.map((image, index) => (
+          <img
+            key={index}
+            src={`data:${image.contentType};base64,${image.data}`}
+            alt={`Image ${index + 1} for ${item.title}`}
+            className="event-image"
+            style={{ maxWidth: '100%', maxHeight: '400px', display: 'inline-block' }}
+          />
+        ))}
+      </div>
+    )}
+    {expanded ? (
+      <div>
+        <p>{item.relatedText}</p>
+      </div>
+    ) : (
+      <div>
+        <p>{item.relatedText.substring(0, 100)}</p>
+        <button
+          className="read-more-button"
+          onClick={() => onReadMoreClick(item._id)}
+        >
+          Read More
+        </button>
+      </div>
+    )}
+  </div>
+);
 
+// AchievementsDetail component
+function AchievementsDetail() {
+  const [carouselItems, setCarouselItems] = useState([]);
   const [expandedSlides, setExpandedSlides] = useState({});
+  const sliderRef = useRef(null);
+  const location = useLocation();
+  const { data } = location.state || {};
+
+  useEffect(() => {
+    setCarouselItems(data);
+  }, [data]);
 
   const settings = {
     dots: true,
@@ -54,39 +64,27 @@ function Achievements() {
     setExpandedSlides((prev) => ({ ...prev, [id]: true }));
   };
 
-  return (
-    <div className="literature-detail-container">
-      <h2 className="poems-heading">Poems of the year {year}</h2>
+  const handleNext = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
 
-      <div className="slider-box" style={{ height: 'auto' }}>
-        <Slider {...settings}>
+  return (
+    <div className="achievements-detail-container">
+      <h2 className="achievements-heading" style={{ textAlign: 'center' }}>
+        Achievements
+      </h2>
+
+      <div className="slider-box" style={{ height: 'auto', textAlign: 'center' }}>
+        <Slider {...settings} ref={sliderRef}>
           {carouselItems.map((item) => (
-            <div key={item.id} className="carousel-slide">
-              <img
-                src={item.image}
-                alt={`Image for ${item.title}`}
-                className="center-image"
-              />
-              <h3>{item.title}</h3>
-              <p>Author: {item.name}</p>
-              <p>Year: {item.year}</p>
-              {expandedSlides[item.id] ? (
-                <div>
-                  <p>{item.content}</p>
-                  <p>{item.achievements}</p>
-                </div>
-              ) : (
-                <div>
-                  <p>{item.content.substring(0, 100)}</p>
-                  <button
-                    className="read-more-button"
-                    onClick={() => handleReadMore(item.id)}
-                  >
-                    Read More
-                  </button>
-                </div>
-              )}
-            </div>
+            <Card
+              key={item._id}
+              item={item}
+              expanded={expandedSlides[item._id]}
+              onReadMoreClick={handleReadMore}
+            />
           ))}
         </Slider>
       </div>
@@ -94,4 +92,4 @@ function Achievements() {
   );
 }
 
-export default  Achievements;
+export default AchievementsDetail;

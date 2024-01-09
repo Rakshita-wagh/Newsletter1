@@ -7,7 +7,7 @@ import Contact from './Pages/Contact';
 import Upload from './Pages/Upload.js';
 import Nav from './Pages/Nav';
 import Literature from "./modules/Literature";
-import Events from "./modules/events";
+import Events from "./modules/Events.js";
 import Cocurricular from "./modules/Cocurricular";
 import Sports from "./modules/Sports";
 import Technical from "./modules/Technical";
@@ -18,7 +18,8 @@ import SportsDetail from "./Details/SportsDetail.js";
 import AchievementDetail from "./Details/Achievements.js";
 import CocurricularDetail from "./Details/CocurricularDetail.js";
 import Edit from "./Details/Edit.js";
-
+import TechnicalDetail from "./Details/TechnicalDetail.js";
+import EventDetail from "./Details/EventDetails.js";
 
 function App(){
   return(
@@ -42,7 +43,8 @@ function App(){
        <Route path="/Achievements-detail" element={<AchievementDetail/>}></Route> 
        <Route path="/Edit" element={<Edit/>}></Route>
        <Route path="/cocurricular-detail" element={<CocurricularDetail/>}></Route>
-      
+       <Route path="/technical-detail" element={<TechnicalDetail/>}></Route>
+       <Route path="/events-detail" element={<EventDetail/>}></Route>
       </Routes>
       </BrowserRouter>
     </div>
