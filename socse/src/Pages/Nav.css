@@ -69,21 +69,12 @@ a:hover{
   border-radius: 50%;
 }
 
-@keyframes slideInFromLeft {
-  
-  25% {
-    transform: translateX(10px); /* Starting distance */
-  }
-  75% {
-    transform: translateX(50px); /* Ending distance */
-  }
-}
+
 
 .heading {
   color: #ecf0f1;
   font-size: 28px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  animation: slideInFromLeft 2s linear infinite;
   font-size: 30px;
 }
 

@@ -1,13 +1,15 @@
+// SportsDetail.js
+
 import React, { useState, useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import './CocurricularDetail.css'; // Import the CSS file
 
 function SportsDetail() {
   const [carouselItems, setCarouselItems] = useState([]);
-  const [expandedSlides, setExpandedSlides] = useState({});
   const sliderRef = useRef(null);
 
   const location = useLocation();
@@ -23,10 +25,6 @@ function SportsDetail() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-  };
-
-  const handleReadMore = (id) => {
-    setExpandedSlides((prev) => ({ ...prev, [id]: true }));
   };
 
   const handleNext = () => {
@@ -52,24 +50,8 @@ function SportsDetail() {
                       src={`data:${image.contentType};base64,${image.data}`}
                       alt={`Image ${index + 1} for ${item.title}`}
                       className="event-image"
-                      style={{ maxWidth: '100%', maxHeight: '400px', display: 'inline-block' }}
                     />
                   ))}
-                </div>
-              )}
-              {expandedSlides[item._id] ? (
-                <div>
-                  <p>{item.relatedText}</p>
-                </div>
-              ) : (
-                <div>
-                  <p>{item.relatedText.substring(0, 100)}</p>
-                  <button
-                    className="read-more-button"
-                    onClick={() => handleReadMore(item._id)}
-                  >
-                    Read More
-                  </button>
                 </div>
               )}
             </div>
