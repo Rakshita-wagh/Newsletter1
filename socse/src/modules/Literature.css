@@ -7,10 +7,10 @@ body {
 
 
 .container {
-    width: 8px; /* Adjust the width as needed */
+    width: 8px; 
     margin: 50px 0 50px 20px;
     background-color: #fff;
-    padding: 8px; /* Adjust the padding as needed */
+    padding: 8px; 
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
