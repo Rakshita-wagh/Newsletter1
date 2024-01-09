@@ -36,7 +36,7 @@ function Cocurricular() {
   return (
     <div className="Cocurricular-page">
       <div className="container1">
-        <h1 className="center">Cocurricular</h1>
+        <h1  style={{textAlign: 'center'}}>Cocurricular</h1>
         <div className="content">
           <h2>Select the year:</h2>
           <select value={selectedYearCocurricular} onChange={handleCocurricularChange}>
@@ -52,6 +52,17 @@ function Cocurricular() {
           Submit
         </button>
       </div>
+      <div >
+<div className="image" style={{ textAlign: 'center', margin: '20px'}}>
+  <img
+    src="https://www.collegebatch.com/static/clg-gallery/kle-technological-university-hubli-252613.jpg"
+    alt="Image description"
+    style={{marginLeft: '120px', height: '550px', width: '1000%', borderRadius: '15px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
+  />
+</div>
+
+
+</div>
      </div>
   );
 }

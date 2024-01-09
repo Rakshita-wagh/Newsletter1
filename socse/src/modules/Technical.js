@@ -36,7 +36,7 @@ function Technical() {
   return (
     <div className="Technical-page">
       <div className="container1">
-        <h1 className="center">Technical</h1>
+        <h1  style={{textAlign: 'center'}}>Technical</h1>
         <div className="content">
           <h2>Select the year:</h2>
           <select value={selectedYearTechnical} onChange={handleTechnicalChange}>
@@ -52,7 +52,19 @@ function Technical() {
           Submit
         </button>
       </div>
+      <div >
+<div className="image" style={{ textAlign: 'center', margin: '20px'}}>
+  <img
+    src="https://www.collegebatch.com/static/clg-gallery/kle-technological-university-hubli-252613.jpg"
+    alt="Image description"
+    style={{marginLeft: '120px', height: '550px', width: '1000%', borderRadius: '15px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
+  />
+</div>
+
+
+</div>
     </div>
+    
   );
 }
 
