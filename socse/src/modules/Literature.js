@@ -64,10 +64,10 @@ function Literature() {
       <body>
 
 <div class="container1">
-    <h1 class="center">Literature</h1>
+    <h1  style={{textAlign: 'center'}}>Literature</h1>
 
     <div class="content">
-        <h2>Poems</h2>
+        <h2 >Poems</h2>
         <select value={selectedYearPoems} onChange={handlePoemsChange}>
             <option disabled selected value="">Select Year</option>
             <option value="2023">2023</option>
@@ -91,7 +91,7 @@ function Literature() {
   <img
     src="https://www.collegebatch.com/static/clg-gallery/kle-technological-university-hubli-252613.jpg"
     alt="Image description"
-    style={{marginLeft: '150px', height: '550px', width: '1000%', borderRadius: '15px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
+    style={{marginLeft: '120px', height: '550px', width: '1000%', borderRadius: '15px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
   />
 </div>
 
