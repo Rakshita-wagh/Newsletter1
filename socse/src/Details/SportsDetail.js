@@ -8,7 +8,6 @@ import { useLocation } from 'react-router-dom';
 function SportsDetail() {
   const [carouselItems, setCarouselItems] = useState([]);
   const [expandedSlides, setExpandedSlides] = useState({});
-
   const sliderRef = useRef(null);
 
   const location = useLocation();
@@ -31,21 +30,33 @@ function SportsDetail() {
   };
 
   const handleNext = () => {
-    // Use slick slider method to move to the next slide
     if (sliderRef.current) {
       sliderRef.current.slickNext();
     }
   };
 
   return (
-    <div className="literature-detail-container">
-      <h2 className="poems-heading">Indoor games</h2>
+    <div className="sports-detail-container">
+      <h2 className="sports-heading">Sports</h2>
 
       <div className="slider-box" style={{ height: 'auto' }}>
         <Slider {...settings} ref={sliderRef}>
           {carouselItems.map((item) => (
             <div key={item._id} className="carousel-slide">
               <h3>{item.title}</h3>
+              {item.images.length > 0 && (
+                <div className="image-gallery">
+                  {item.images.map((image, index) => (
+                    <img
+                      key={index}
+                      src={`data:${image.contentType};base64,${image.data}`}
+                      alt={`Image ${index + 1} for ${item.title}`}
+                      className="event-image"
+                      style={{ maxWidth: '100%', maxHeight: '400px', display: 'inline-block' }}
+                    />
+                  ))}
+                </div>
+              )}
               {expandedSlides[item._id] ? (
                 <div>
                   <p>{item.relatedText}</p>
