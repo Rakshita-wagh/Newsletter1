@@ -35,7 +35,7 @@ function Technical() {
 
   return (
     <div className="Technical-page">
-      <div className="container">
+      <div className="container1">
         <h1 className="center">Technical</h1>
         <div className="content">
           <h2>Select the year:</h2>

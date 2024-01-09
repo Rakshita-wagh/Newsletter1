@@ -35,7 +35,7 @@ function Cocurricular() {
 
   return (
     <div className="Cocurricular-page">
-      <div className="container">
+      <div className="container1">
         <h1 className="center">Cocurricular</h1>
         <div className="content">
           <h2>Select the year:</h2>

@@ -63,7 +63,7 @@ function Literature() {
     <div className="literature-page">
       <body>
 
-<div class="container">
+<div class="container1">
     <h1 class="center">Literature</h1>
 
     <div class="content">
