@@ -19,6 +19,7 @@ import AchievementDetail from "./Details/Achievements.js";
 import CocurricularDetail from "./Details/CocurricularDetail.js";
 import Edit from "./Details/Edit.js";
 import TechnicalDetail from "./Details/TechnicalDetail.js";
+import Download  from './modules/download.js';
 
 
 function App(){
@@ -44,6 +45,7 @@ function App(){
        <Route path="/Edit" element={<Edit/>}></Route>
        <Route path="/cocurricular-detail" element={<CocurricularDetail/>}></Route>
        <Route path="/technical-detail" element={<TechnicalDetail/>}></Route>
+       <Route path="/Download" element={<Download/>}></Route>
       </Routes>
       </BrowserRouter>
     </div>
