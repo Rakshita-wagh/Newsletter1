@@ -52,7 +52,6 @@ function Cocurricular() {
           Submit
         </button>
       </div>
-        </select>
      </div>
   );
 }
