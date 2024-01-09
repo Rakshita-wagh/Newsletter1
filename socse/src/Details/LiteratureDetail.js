@@ -4,6 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import './LiteratureDetail.css'; // Import the CSS file
 
 function LiteratureDetail() {
   const [carouselItems, setCarouselItems] = useState([]);

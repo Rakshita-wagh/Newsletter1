@@ -6,6 +6,7 @@ import sports from '../images/sports.jpg';
 import literature from '../images/literature.jpg';
 import indoor from '../images/indoor.jpg';
 import { useNavigate } from 'react-router-dom';
+import './CocurricularDetail.css'; // Import the CSS file
 
 const SportsDetail = () => {
 
