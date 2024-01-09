@@ -86,7 +86,17 @@ const About = () => {
               </div>
         </div>
       </div>
+      <div className='creators'>
+        <h3>Created by:</h3>
+         <ul>
+          <li>Rakshita Wagh</li>
+          <li>Srajana Naik</li>
+          <li>Vaishnavi C G</li>
+          <li>Sindhu V L</li>
+         </ul>
+      </div>
     </div>
+
   );
 };
 
