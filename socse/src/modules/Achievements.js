@@ -57,7 +57,7 @@ function Achievements() {
 
   return (
     <div className="achievements-page">
-      <div className="container">
+      <div className="container1">
         <h1 className="center">Achievements</h1>
 
         <div className="content">

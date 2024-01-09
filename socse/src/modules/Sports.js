@@ -55,7 +55,7 @@ function Sports() {
     <div className="Sports-page">
       <body>
 
-<div class="container">
+<div class="container1">
     <h1 class="center">Sports</h1>
 
     <div class="content">

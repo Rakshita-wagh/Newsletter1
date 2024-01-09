@@ -31,9 +31,20 @@
   font-size: 20px
 }
 
-.container{
-  background-color: rgb(230, 219, 219);
+.container1{
+  background-color: rgb(190, 185, 185);
+  width: 300px; /* Adjust the width as needed */
+  height: 340px; /* Adjust the height as needed */
+  padding: 10px;
+  border-radius: 8px;
+  float: left;
 }
+
+ 
+
+
+
+
 
 .num{
   margin-left: 9%;
