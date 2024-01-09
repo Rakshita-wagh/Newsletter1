@@ -84,6 +84,18 @@ function Literature() {
         </select>
     </div>
     <button className="submit-button" onClick={handleSubmit}>Submit</button>
+   
+</div>
+<div >
+<div className="image" style={{ textAlign: 'center', margin: '20px'}}>
+  <img
+    src="https://www.collegebatch.com/static/clg-gallery/kle-technological-university-hubli-252613.jpg"
+    alt="Image description"
+    style={{marginLeft: '150px', height: '550px', width: '1000%', borderRadius: '15px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
+  />
+</div>
+
+
 </div>
 
 </body>
