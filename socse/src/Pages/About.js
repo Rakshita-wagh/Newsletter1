@@ -44,53 +44,46 @@ const About = () => {
         <div className='lead'>
           <div className="coordinate">
             <h2 className='module'>Cultural</h2>
-            <ul>
-            <li>Sathwik</li>
-              <li>Sakshi</li>
-              
-            </ul>
+            <div className='name'>
+           <p>Sathwik</p>
+          <p className="space-between">Sakshi</p>
+      </div>
           </div>
           <div className="coordinate">
             <h2 className='module'>Cocurricular</h2>
-            <ul>
-            <li>Praveen</li>
-              <li>Akshata</li>
-              
-            </ul>
+            <div className='name1'>
+           <p>Praveen</p>
+          <p className="space-between">Akshata</p>
+      </div>
           </div>
           <div className="coordinate">
             <h2 className='module'>Media</h2>
-            <ul>
-            <li>Prateeth</li>
-              <li>Rakshita</li>
-              
-            </ul>
+            <div className='name2'>
+           <p>Prateeth</p>
+          <p className="space-between">Rakshita</p>
+      </div>
           </div>
           <div className="coordinate">
             <h2 className='module'>Sports</h2>
-            <ul>
-            <li>Bharat</li>
-              <li>Apeksha</li>
-              
-            </ul>
+            <div className='name3'>
+           <p>Bharat</p>
+          <p className="space-between">Apeksha</p>
+      </div>
           </div>
           <div className="coordinate">
             <h2 className='module'>Literature</h2>
-            <ul>
-            <li>Murali</li>
-            <li>Gouri</li> 
-            </ul>
+            <div className='name4'>
+           <p>Murali</p>
+          <p className="space-between">Gouri</p>
+      </div>
           </div>
           <div className="coordinate">
             <h2 className='module'>Programming</h2>
-              <li>
-              <div className='coordinate1'>
-              <ul>Shuchit</ul>
-              <ul>-</ul>
+            <div className='name5'>
+           <p>Shuchit</p>
+          <p className="space-between">-</p>
+      </div>
               </div>
-            </li>
-            
-          </div>
         </div>
       </div>
     </div>
