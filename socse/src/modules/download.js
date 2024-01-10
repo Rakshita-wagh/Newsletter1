@@ -1,46 +1,78 @@
 import React from 'react';
+import { pdf, Page, Text, View, Image, StyleSheet } from '@react-pdf/renderer';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
-import { pdf } from '@react-pdf/renderer';
 
-
-
-// PDF template component
-const MyDocument = ({ formData }) => (
-  <pdf>
-    <Page size="A4">
-      <View style={styles.section}>
-        <Text>Name: {formData.name}</Text>
-        <Text>Email: {formData.email}</Text>
-        {/* Add more fields as needed */}
-      </View>
-    </Page>
-  </pdf>
-);
-
+// Styles for PDF pages
 const styles = StyleSheet.create({
-  section: {
-    margin: 10,
-    padding: 10,
-    flexGrow: 1,
+  coverPage: {
+    textAlign: 'center',
+    justifyContent: 'center',
+    padding: 20,
+  },
+  indexPage: {
+    textAlign: 'center',
+    padding: 20,
+  },
+  contentPage: {
+    padding: 20,
+  },
+  page: {
+    padding: 20,
+  },
+  image: {
+    width: 200,
+    height: 200,
   },
 });
+
+// PDF template component
+const MyDocument = ({ formData, pages }) => (
+  <pdf>
+    {/* Cover Page */}
+    <Page style={styles.coverPage}>
+      <View>
+        <Text>Cover Page</Text>
+      </View>
+    </Page>
+
+    {/* Index Page */}
+    <Page style={styles.indexPage}>
+      <View>
+        <Text>Index Page</Text>
+        <Text>{formData.indexContent}</Text> {/* Display index content */}
+      </View>
+    </Page>
+
+    {/* Content Pages */}
+    {pages.map((page, index) => (
+      <Page key={index} style={styles.page}>
+        <View>
+          <Text>{page.title}</Text>
+          <Text>{page.textContent}</Text>
+          <Image src={page.imageSrc} style={styles.image} />
+        </View>
+      </Page>
+    ))}
+  </pdf>
+);
 
 // UserForm component
 const UserForm = () => {
   const formik = useFormik({
     initialValues: {
-      name: '',
-      email: '',
-      // Add more fields as needed
+      indexContent: '',
+      pages: [
+        { title: 'Page 1', textContent: '', imageSrc: '' },
+        { title: 'Page 2', textContent: '', imageSrc: '' },
+        { title: 'Page 3', textContent: '', imageSrc: '' },
+        // Add more pages as needed
+      ],
     },
     validationSchema: Yup.object({
-      name: Yup.string().required('Name is required'),
-      email: Yup.string().email('Invalid email address').required('Email is required'),
-      // Add more validations as needed
+      // Add validation schema for other fields as needed
     }),
     onSubmit: async (values) => {
       try {
@@ -53,7 +85,7 @@ const UserForm = () => {
 
         // Generate a PDF using the provided template and the form image
         const pdfBlob = await pdf(
-          <MyDocument formData={values} />,
+          <MyDocument formData={values} pages={values.pages} />,
           { width: 800, height: 1200 } // Adjust the width and height as needed
         ).toBlob();
 
@@ -85,36 +117,44 @@ const UserForm = () => {
         <div id="form-container">
           {/* Form fields */}
           <div>
-            <label htmlFor="name">Name:</label>
+            <label htmlFor="indexContent">Index Content:</label>
             <input
               type="text"
-              id="name"
-              name="name"
+              id="indexContent"
+              name="indexContent"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              value={formik.values.name}
+              value={formik.values.indexContent}
             />
-            {formik.touched.name && formik.errors.name ? (
-              <div style={{ color: 'red' }}>{formik.errors.name}</div>
-            ) : null}
           </div>
 
-          <div>
-            <label htmlFor="email">Email:</label>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
-            />
-            {formik.touched.email && formik.errors.email ? (
-              <div style={{ color: 'red' }}>{formik.errors.email}</div>
-            ) : null}
-          </div>
-
-          {/* Add more fields as needed */}
+          {/* Pages */}
+          {formik.values.pages.map((page, pageIndex) => (
+            <div key={pageIndex}>
+              <h3>{page.title}</h3>
+              <div>
+                <label htmlFor={`pages[${pageIndex}].textContent`}>Text Content:</label>
+                <textarea
+                  id={`pages[${pageIndex}].textContent`}
+                  name={`pages[${pageIndex}].textContent`}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={page.textContent}
+                />
+              </div>
+              <div>
+                <label htmlFor={`pages[${pageIndex}].imageSrc`}>Image Source:</label>
+                <input
+                  type="text"
+                  id={`pages[${pageIndex}].imageSrc`}
+                  name={`pages[${pageIndex}].imageSrc`}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={page.imageSrc}
+                />
+              </div>
+            </div>
+          ))}
         </div>
 
         <button type="submit">Submit</button>
