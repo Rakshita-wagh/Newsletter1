@@ -22,7 +22,7 @@ body {
  
   
   .center {
-    text-align: left;
+    text-align: center;
     color: #333;
   }
   
@@ -32,7 +32,7 @@ body {
   }
   
   h2 {
-    color: #858080;
+    color: #a39d9d;
   }
   
   select {

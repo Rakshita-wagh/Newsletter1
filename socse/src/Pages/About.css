@@ -79,12 +79,14 @@
 }
 
 .container1{
-  background-color: rgb(190, 185, 185);
-  width: 300px; /* Adjust the width as needed */
-  height: 340px; /* Adjust the height as needed */
+  background-color: rgb(176, 197, 234);
+  width: 400px; /* Adjust the width as needed */
+  height: 420px; /* Adjust the height as needed */
   padding: 10px;
   border-radius: 8px;
   float: left;
+  margin-top: 40px;
+  margin-left: 80px;
 }
 
 .container2{
@@ -122,3 +124,10 @@
 }
  
 
+.creators{
+  margin-left: 80%;
+  margin-top: 15px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  box-shadow: 5px 6px 15px rgba(0, 0, 0, 0.3);
+  
+}
