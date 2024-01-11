@@ -7,6 +7,10 @@ import { saveAs } from 'file-saver';
 
 // Styles for PDF pages
 const styles = StyleSheet.create({
+  pageContainer: {
+    
+    padding: 20,
+  },
   coverPage: {
     textAlign: 'center',
     justifyContent: 'center',
@@ -20,7 +24,10 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   page: {
-    padding: 20,
+    marginTop:20,
+    marginBottom:20,
+    border: '1px solid #333',
+
   },
   image: {
     width: 200,
@@ -83,38 +90,37 @@ const formStyles = {
     cursor: 'pointer',
     fontSize: '16px',
   },
-};
-
-// PDF template component
-const MyDocument = ({ formData, pages }) => (
+};const MyDocument = ({ formData, pages }) => (
   <pdf>
     {/* Cover Page */}
-    <Page style={styles.coverPage}>
-      <View>
-        <Text>Cover Page</Text>
+    <Page style={{ ...styles.page, borderWidth: 2, borderColor: '#333' }}>
+      <View style={styles.pageContainer}>
+        <Text style={{ fontSize: '20pt' }}>Cover Page</Text>
       </View>
     </Page>
 
     {/* Index Page */}
-    <Page style={styles.indexPage}>
-      <View>
-        <Text>Index Page</Text>
+    <Page style={{ ...styles.page, borderWidth: 2, borderColor: '#333' }}>
+      <View style={styles.pageContainer}>
+        <Text style={{ fontSize: '20pt' }}>Index Page</Text>
         <Text>{formData.indexContent}</Text> {/* Display index content */}
       </View>
     </Page>
 
     {/* Content Pages */}
     {pages.map((page, index) => (
-      <Page key={index} style={styles.page}>
-        <View>
-          <Text>{page.title}</Text>
+      <Page key={index} style={{ ...styles.page, borderWidth: 2, borderColor: '#333' }}>
+        <View style={styles.pageContainer}>
+          <Text style={{ fontSize: '20pt' }}>{page.title}</Text>
           <Text>{page.textContent}</Text>
-          <Image src={page.imageSrc} style={styles.image} />
+          <Image src={page.imageSrc} style={{ ...styles.image, borderWidth: 1, borderColor: '#333' }} />
         </View>
       </Page>
     ))}
   </pdf>
 );
+
+
 
 // UserForm component
 const UserForm = () => {
