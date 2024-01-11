@@ -28,6 +28,63 @@ const styles = StyleSheet.create({
   },
 });
 
+// Additional CSS for UserForm component
+const formStyles = {
+  container: {
+    maxWidth: '800px',
+    margin: '0 auto',
+    padding: '20px',
+    fontFamily: 'Arial, sans-serif',
+    backgroundColor: '#f4f4f4',
+    borderRadius: '8px',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+  },
+  heading: {
+    fontSize: '24px',
+    marginBottom: '20px',
+    color: '#333',
+    textAlign: 'center',
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  inputContainer: {
+    marginBottom: '15px',
+  },
+  label: {
+    display: 'block',
+    marginBottom: '5px',
+    color: '#555',
+  },
+  input: {
+    width: '100%',
+    padding: '10px',
+    boxSizing: 'border-box',
+    borderRadius: '4px',
+    border: '1px solid #ddd',
+    marginBottom: '10px',
+  },
+  textarea: {
+    width: '100%',
+    padding: '10px',
+    boxSizing: 'border-box',
+    minHeight: '100px',
+    borderRadius: '4px',
+    border: '1px solid #ddd',
+    marginBottom: '10px',
+  },
+  button: {
+    backgroundColor: '#4caf50',
+    color: '#fff',
+    padding: '12px 20px',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    fontSize: '16px',
+  },
+};
+
 // PDF template component
 const MyDocument = ({ formData, pages }) => (
   <pdf>
@@ -65,9 +122,9 @@ const UserForm = () => {
     initialValues: {
       indexContent: '',
       pages: [
-        { title: 'Page 1', textContent: '', imageSrc: '' },
-        { title: 'Page 2', textContent: '', imageSrc: '' },
-        { title: 'Page 3', textContent: '', imageSrc: '' },
+        { title: 'Events', textContent: '', imageSrc: '' },
+        { title: 'Literature', textContent: '', imageSrc: '' },
+        { title: 'Achievements', textContent: '', imageSrc: '' },
         // Add more pages as needed
       ],
     },
@@ -111,14 +168,17 @@ const UserForm = () => {
   };
 
   return (
-    <div>
+    <div style={formStyles.container}>
       <h2>User Form</h2>
       <form onSubmit={formik.handleSubmit}>
         <div id="form-container">
           {/* Form fields */}
-          <div>
-            <label htmlFor="indexContent">Index Content:</label>
+          <div style={formStyles.inputContainer}>
+            <label style={formStyles.label} htmlFor="indexContent">
+              Index Content:
+            </label>
             <input
+              style={formStyles.input}
               type="text"
               id="indexContent"
               name="indexContent"
@@ -132,9 +192,12 @@ const UserForm = () => {
           {formik.values.pages.map((page, pageIndex) => (
             <div key={pageIndex}>
               <h3>{page.title}</h3>
-              <div>
-                <label htmlFor={`pages[${pageIndex}].textContent`}>Text Content:</label>
+              <div style={formStyles.inputContainer}>
+                <label style={formStyles.label} htmlFor={`pages[${pageIndex}].textContent`}>
+                  Text Content:
+                </label>
                 <textarea
+                  style={formStyles.textarea}
                   id={`pages[${pageIndex}].textContent`}
                   name={`pages[${pageIndex}].textContent`}
                   onChange={formik.handleChange}
@@ -142,9 +205,12 @@ const UserForm = () => {
                   value={page.textContent}
                 />
               </div>
-              <div>
-                <label htmlFor={`pages[${pageIndex}].imageSrc`}>Image Source:</label>
+              <div style={formStyles.inputContainer}>
+                <label style={formStyles.label} htmlFor={`pages[${pageIndex}].imageSrc`}>
+                  Image Source:
+                </label>
                 <input
+                  style={formStyles.input}
                   type="text"
                   id={`pages[${pageIndex}].imageSrc`}
                   name={`pages[${pageIndex}].imageSrc`}
@@ -157,7 +223,9 @@ const UserForm = () => {
           ))}
         </div>
 
-        <button type="submit">Submit</button>
+        <button style={formStyles.button} type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );
