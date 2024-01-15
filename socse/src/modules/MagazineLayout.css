@@ -1,0 +1,40 @@
+// MagazineLayout.css
+/* MagazineLayout.css */
+.custom-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Arial, sans-serif';
+  border: 2px solid #000; /* Add border to all pages */
+}
+
+/* Add border to each page separately */
+.custom-background-1 {
+  background-color: #ffcccb;
+  border: 2px solid #000;
+}
+
+.custom-background-2 {
+  background-color: #a0d2e8;
+  border: 2px dashed #000;
+}
+
+.custom-background-3 {
+  background-color: #c7ecee;
+  border: 2px solid #ff00ff;
+}
+
+.custom-background-4 {
+  background-color: #f5e6e8;
+  border: 2px dotted #00ff00;
+}
+
+.custom-background-5 {
+  background-color: #d5f5e3;
+  border: 2px dashed #ff0000;
+}
+
+/* Center the heading */
+.page-content {
+  text-align: center;
+}
