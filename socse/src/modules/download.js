@@ -1,234 +1,108 @@
-import React from 'react';
-import { pdf, Page, Text, View, Image, StyleSheet } from '@react-pdf/renderer';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import html2canvas from 'html2canvas';
-import { saveAs } from 'file-saver';
+// MagazineLayout.js
+import React, { useState } from 'react';
+import { Row, Col, Card, Typography, Input, Button } from 'antd';
+import ReactPageflip from 'react-pageflip';
+import './MagazineLayout.css'; // Import external stylesheet
 
-// Styles for PDF pages
-const styles = StyleSheet.create({
-  coverPage: {
-    textAlign: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  indexPage: {
-    textAlign: 'center',
-    padding: 20,
-  },
-  contentPage: {
-    padding: 20,
-  },
-  page: {
-    padding: 20,
-  },
-  image: {
-    width: 200,
-    height: 200,
-  },
-});
+const { Title, Paragraph } = Typography;
 
-// Additional CSS for UserForm component
-const formStyles = {
-  container: {
-    maxWidth: '800px',
-    margin: '0 auto',
-    padding: '20px',
-    fontFamily: 'Arial, sans-serif',
-    backgroundColor: '#f4f4f4',
-    borderRadius: '8px',
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-  },
-  heading: {
-    fontSize: '24px',
-    marginBottom: '20px',
-    color: '#333',
-    textAlign: 'center',
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  inputContainer: {
-    marginBottom: '15px',
-  },
-  label: {
-    display: 'block',
-    marginBottom: '5px',
-    color: '#555',
-  },
-  input: {
-    width: '100%',
-    padding: '10px',
-    boxSizing: 'border-box',
-    borderRadius: '4px',
-    border: '1px solid #ddd',
-    marginBottom: '10px',
-  },
-  textarea: {
-    width: '100%',
-    padding: '10px',
-    boxSizing: 'border-box',
-    minHeight: '100px',
-    borderRadius: '4px',
-    border: '1px solid #ddd',
-    marginBottom: '10px',
-  },
-  button: {
-    backgroundColor: '#4caf50',
-    color: '#fff',
-    padding: '12px 20px',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    fontSize: '16px',
-  },
-};
-
-// PDF template component
-const MyDocument = ({ formData, pages }) => (
-  <pdf>
-    {/* Cover Page */}
-    <Page style={styles.coverPage}>
-      <View>
-        <Text>Cover Page</Text>
-      </View>
-    </Page>
-
-    {/* Index Page */}
-    <Page style={styles.indexPage}>
-      <View>
-        <Text>Index Page</Text>
-        <Text>{formData.indexContent}</Text> {/* Display index content */}
-      </View>
-    </Page>
-
-    {/* Content Pages */}
-    {pages.map((page, index) => (
-      <Page key={index} style={styles.page}>
-        <View>
-          <Text>{page.title}</Text>
-          <Text>{page.textContent}</Text>
-          <Image src={page.imageSrc} style={styles.image} />
-        </View>
-      </Page>
-    ))}
-  </pdf>
-);
-
-// UserForm component
-const UserForm = () => {
-  const formik = useFormik({
-    initialValues: {
-      indexContent: '',
-      pages: [
-        { title: 'Events', textContent: '', imageSrc: '' },
-        { title: 'Literature', textContent: '', imageSrc: '' },
-        { title: 'Achievements', textContent: '', imageSrc: '' },
-        // Add more pages as needed
-      ],
-    },
-    validationSchema: Yup.object({
-      // Add validation schema for other fields as needed
-    }),
-    onSubmit: async (values) => {
-      try {
-        // Convert the form to an image using html2canvas
-        const canvas = await html2canvas(document.getElementById('form-container'));
-        const imgData = canvas.toDataURL('image/png');
-
-        // Convert data URL to Blob
-        const blob = await dataURLtoBlob(imgData);
-
-        // Generate a PDF using the provided template and the form image
-        const pdfBlob = await pdf(
-          <MyDocument formData={values} pages={values.pages} />,
-          { width: 800, height: 1200 } // Adjust the width and height as needed
-        ).toBlob();
-
-        // Create a Blob from the PDF and save it
-        saveAs(pdfBlob, 'filled_application.pdf');
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    },
+const MagazineLayout = () => {
+  const [userContent, setUserContent] = useState({
+    heading: '',
+    article: '',
+    author: '',
+    image: '',
   });
 
-  // Utility function to convert data URL to Blob
-  const dataURLtoBlob = (dataURL) => {
-    const byteString = atob(dataURL.split(',')[1]);
-    const ab = new ArrayBuffer(byteString.length);
-    const ia = new Uint8Array(ab);
+  const [pages, setPages] = useState([]);
 
-    for (let i = 0; i < byteString.length; i++) {
-      ia[i] = byteString.charCodeAt(i);
-    }
+  const handleInputChange = (key, value) => {
+    setUserContent((prevContent) => ({ ...prevContent, [key]: value }));
+  };
 
-    return new Blob([ab], { type: 'image/png' });
+  const addPage = () => {
+    setPages((prevPages) => [...prevPages, { ...userContent }]);
+    setUserContent({ heading: '', article: '', author: '', image: '' });
+  };
+
+  const deletePage = (index) => {
+    setPages((prevPages) => prevPages.filter((_, i) => i !== index));
   };
 
   return (
-    <div style={formStyles.container}>
-      <h2>User Form</h2>
-      <form onSubmit={formik.handleSubmit}>
-        <div id="form-container">
-          {/* Form fields */}
-          <div style={formStyles.inputContainer}>
-            <label style={formStyles.label} htmlFor="indexContent">
-              Index Content:
-            </label>
-            <input
-              style={formStyles.input}
-              type="text"
-              id="indexContent"
-              name="indexContent"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.indexContent}
+    <div style={{ width: '80%', margin: '0 auto', padding: '20px', backgroundColor: '#f9f9f9' }}>
+      <Title level={2} style={{ textAlign: 'center' }}>Magazine Layout</Title>
+
+      <Row gutter={16} style={{ marginTop: '20px' }}>
+        <Col span={24}>
+          <Card title="Add Content">
+            <Input
+              placeholder="Heading"
+              value={userContent.heading}
+              onChange={(e) => handleInputChange('heading', e.target.value)}
+              style={{ marginBottom: '10px' }}
             />
-          </div>
+            <Input
+              placeholder="Article"
+              value={userContent.article}
+              onChange={(e) => handleInputChange('article', e.target.value)}
+              style={{ marginBottom: '10px' }}
+            />
+            <Input
+              placeholder="Author"
+              value={userContent.author}
+              onChange={(e) => handleInputChange('author', e.target.value)}
+              style={{ marginBottom: '10px' }}
+            />
+            <Input
+              placeholder="Image URL"
+              value={userContent.image}
+              onChange={(e) => handleInputChange('image', e.target.value)}
+              style={{ marginBottom: '10px' }}
+            />
+            <Button type="primary" onClick={addPage}>Add Page</Button>
+          </Card>
+        </Col>
+      </Row>
 
-          {/* Pages */}
-          {formik.values.pages.map((page, pageIndex) => (
-            <div key={pageIndex}>
-              <h3>{page.title}</h3>
-              <div style={formStyles.inputContainer}>
-                <label style={formStyles.label} htmlFor={`pages[${pageIndex}].textContent`}>
-                  Text Content:
-                </label>
-                <textarea
-                  style={formStyles.textarea}
-                  id={`pages[${pageIndex}].textContent`}
-                  name={`pages[${pageIndex}].textContent`}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={page.textContent}
-                />
-              </div>
-              <div style={formStyles.inputContainer}>
-                <label style={formStyles.label} htmlFor={`pages[${pageIndex}].imageSrc`}>
-                  Image Source:
-                </label>
-                <input
-                  style={formStyles.input}
-                  type="text"
-                  id={`pages[${pageIndex}].imageSrc`}
-                  name={`pages[${pageIndex}].imageSrc`}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={page.imageSrc}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
+      <Row gutter={16} style={{ marginTop: '20px' }}>
+        <Col span={24}>
+          <Card title="Display Content">
+            <ReactPageflip
+              width={500 * 2} // Considering a higher resolution for better display
+              height={297 * 2} // Considering a higher resolution for better display
+              animationDuration={700}
+              showCover
+              mobileScrollSupport
+            >
+              {pages.map((page, index) => (
+                <div
+                  key={index}
+                  className={`custom-page custom-background-${index + 1}`}
+                >
+                  <div className="page-content">
+                    <div>
+                      <Title level={3}>{page.heading}</Title>
+                      <Paragraph>{page.article}</Paragraph>
+                      <Paragraph>Author: {page.author}</Paragraph>
+                      {page.image && <img src={page.image} alt="Author" style={{ maxWidth: '100%' }} />}
+                    </div>
+                  </div>
+                  <div style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
+                    <Button type="danger" onClick={() => deletePage(index)}>Delete Page</Button>
+                  </div>
+                </div>
+              ))}
+            </ReactPageflip>
+          </Card>
+        </Col>
+      </Row>
 
-        <button style={formStyles.button} type="submit">
-          Submit
-        </button>
-      </form>
+      <div style={{ marginTop: '20px', textAlign: 'center' }}>
+        <Button type="primary" >Save</Button>
+      </div>
     </div>
   );
 };
 
-export default UserForm;
+export default MagazineLayout;
