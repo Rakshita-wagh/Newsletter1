@@ -38,13 +38,14 @@
   
   .box1:hover {
     transform: translateZ(100%); 
-    box-shadow: 0px 0px 10px 10px #d63384;; 
+    box-shadow: 0px 0px 10px 10px #d63384;
   }
  
 
 .all{
   display: flex;
     flex-wrap: wrap; 
+    padding-bottom: 100px;
 }
 
 

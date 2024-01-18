@@ -7,8 +7,7 @@ import technical from '../images/techical.jpg';
 import cocurricular from '../images/co-curricular.png';
 import achievements from '../images/acheivements.jpg';
 import  Notification from '../modules/notification';
-import Download  from '../modules/download';
-import {Button} from 'react-bootstrap';
+
 
 
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
@@ -73,9 +72,7 @@ function Home () {
        
         
 
-        <div >
-        <Button className="button" variant="outline-danger" onClick={load}><b>Download</b></Button>
-        </div>
+       
         </div>
        </>
   );
