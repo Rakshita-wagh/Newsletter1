@@ -2,8 +2,11 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Alert } from "react-bootstrap";
 import axios from "axios";
+import Download  from '../modules/download';
+import { useNavigate } from 'react-router-dom';
 
 const YourFormComponent = () => {
+  const navigate = useNavigate();
   const [type, setType] = useState("");
   const [year, setYear] = useState("");
   const [title, setTitle] = useState("");
@@ -11,7 +14,7 @@ const YourFormComponent = () => {
   const [images, setImages] = useState([]);
   const [submissionStatus, setSubmissionStatus] = useState(null);
   const [fileInputKey, setFileInputKey] = useState(Date.now()); // Key for resetting file input
-
+  const load = () => navigate('/Download');
   const handleImageChange = (e) => {
     const files = e.target.files;
     setImages([...images, ...files]);
@@ -68,6 +71,7 @@ const YourFormComponent = () => {
   };
 
   return (
+    <body>
     <Container className="mt-5 p-4" style={{ background: "white", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" }}>
       <h2 className="text-center mb-4">Data Input Form</h2>
       
@@ -141,6 +145,10 @@ const YourFormComponent = () => {
         </Button>
       </Form>
     </Container>
+    <div >
+        <Button className="button" variant="outline-danger" onClick={load}><b>Generate magazine</b></Button>
+        </div>
+    </body>
   );
 };
 
