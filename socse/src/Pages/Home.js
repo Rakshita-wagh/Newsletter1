@@ -2,10 +2,10 @@
 
 import events from '../images/events.jpg';
 import sports from '../images/sports.jpg';
-import literature from '../images/literature.jpg';
-import technical from '../images/techical.jpg';
-import cocurricular from '../images/co-curricular.png';
-import achievements from '../images/acheivements.jpg';
+import literature from '../images/lit.jpg';
+import technical from '../images/tech.jpg';
+import cocurricular from '../images/cocu.jpg';
+import achievements from '../images/ach.jpg';
 import  Notification from '../modules/notification';
 
 
