@@ -85,7 +85,7 @@ const MagazineLayout = () => {
                       <Title level={3}>{page.heading}</Title>
                       <Paragraph>{page.article}</Paragraph>
                       <Paragraph>Author: {page.author}</Paragraph>
-                      {page.image && <img src={page.image} alt="Author" style={{ maxWidth: '100%' }} />}
+                      {page.image && <img src={page.image} alt="Author" style={{ maxWidth: '100%',maxHeight:'50%' }} />}
                     </div>
                   </div>
                   <div style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
