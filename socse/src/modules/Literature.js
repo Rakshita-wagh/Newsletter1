@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Literature.css';
 import { useNavigate } from 'react-router-dom';
 import LiteratureDetail from '../Details/LiteratureDetail.js';
+import clite from '../images/clite.jpg'
 
 
 function Literature() {
@@ -89,9 +90,9 @@ function Literature() {
 <div >
 <div className="image" style={{ textAlign: 'center', margin: '20px'}}>
   <img
-    src="https://www.collegebatch.com/static/clg-gallery/kle-technological-university-hubli-252613.jpg"
+    src={clite}
     alt="Image description"
-    style={{marginLeft: '120px', height: '550px', width: '1000%', borderRadius: '15px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
+    style={{marginLeft: '150px', height: '550px', width: '1000%', borderRadius: '15px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
   />
 </div>
 

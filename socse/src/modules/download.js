@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Row, Col, Card, Typography, Input, Button } from 'antd';
 import ReactPageflip from 'react-pageflip';
 import './MagazineLayout.css'; // Import external stylesheet
+import clite from '../images/clite.jpg'
 
 const { Title, Paragraph } = Typography;
 
