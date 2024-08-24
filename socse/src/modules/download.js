@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 // // MagazineLayout.js
 // import React, { useState } from 'react';
 // import { Row, Col, Card, Typography, Input, Button } from 'antd';
 // import ReactPageflip from 'react-pageflip';
 // import './MagazineLayout.css'; // Import external stylesheet
+=======
+// MagazineLayout.js
+import React, { useState } from 'react';
+import { Row, Col, Card, Typography, Input, Button } from 'antd';
+import ReactPageflip from 'react-pageflip';
+import './MagazineLayout.css'; // Import external stylesheet
+import clite from '../images/clite.jpg'
+>>>>>>> ba7f01a8c44dbd8c0f3d39b29f6c6b88296675f8
 
 // const { Title, Paragraph } = Typography;
 
@@ -65,6 +74,7 @@
 //         </Col>
 //       </Row>
 
+<<<<<<< HEAD
 //       <Row gutter={16} style={{ marginTop: '20px' }}>
 //         <Col span={24}>
 //           <Card title="Display Content">
@@ -97,6 +107,40 @@
 //           </Card>
 //         </Col>
 //       </Row>
+=======
+      <Row gutter={16} style={{ marginTop: '20px' }}>
+        <Col span={24}>
+          <Card title="Display Content">
+            <ReactPageflip
+              width={500 * 2} // Considering a higher resolution for better display
+              height={297 * 2} // Considering a higher resolution for better display
+              animationDuration={700}
+              showCover
+              mobileScrollSupport
+            >
+              {pages.map((page, index) => (
+                <div
+                  key={index}
+                  className={`custom-page custom-background-${index + 1}`}
+                >
+                  <div className="page-content">
+                    <div>
+                      <Title level={3}>{page.heading}</Title>
+                      <Paragraph>{page.article}</Paragraph>
+                      <Paragraph>Author: {page.author}</Paragraph>
+                      {page.image && <img src={page.image} alt="Author" style={{ maxWidth: '100%',maxHeight:'50%' }} />}
+                    </div>
+                  </div>
+                  <div style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
+                    <Button type="danger" onClick={() => deletePage(index)}>Delete Page</Button>
+                  </div>
+                </div>
+              ))}
+            </ReactPageflip>
+          </Card>
+        </Col>
+      </Row>
+>>>>>>> ba7f01a8c44dbd8c0f3d39b29f6c6b88296675f8
 
 //       <div style={{ marginTop: '20px', textAlign: 'center' }}>
 //         <Button type="primary" >Save</Button>
