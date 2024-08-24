@@ -41,11 +41,11 @@ function App(){
       <Route path="/register" element={<Register/>}></Route>
       <Route path="/literature-detail" element={<LiteratureDetail/>}></Route>
       <Route path="/sports-detail" element={<SportsDetail/>}></Route>
-       <Route path="/Achievements-detail" element={<AchievementDetail/>}></Route> 
-       <Route path="/Edit" element={<Edit/>}></Route>
-       <Route path="/cocurricular-detail" element={<CocurricularDetail/>}></Route>
-       <Route path="/technical-detail" element={<TechnicalDetail/>}></Route>
-       <Route path="/Download" element={<Download/>}></Route>
+      <Route path="/Achievements-detail" element={<AchievementDetail/>}></Route> 
+      <Route path="/Edit" element={<Edit/>}></Route>
+      <Route path="/cocurricular-detail" element={<CocurricularDetail/>}></Route>
+      <Route path="/technical-detail" element={<TechnicalDetail/>}></Route>
+      <Route path="/Download" element={<Download/>}></Route>
       </Routes>
       </BrowserRouter>
     </div>

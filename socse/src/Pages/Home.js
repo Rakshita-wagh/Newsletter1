@@ -47,7 +47,7 @@ function Home () {
                <div className="box1" onClick={Eve}>
                  <img src={events} alt="Description" className="events" />
                  <h5 className="cardtitle">Events</h5>
-                </div>
+                </div>    
                 <div className="box1" onClick={Lit}>
                  <img src={literature} alt="Description" className="events" />
                  <h5 className="cardtitle">Literature</h5>
@@ -80,3 +80,5 @@ function Home () {
 }
 
 export default Home;
+
+
